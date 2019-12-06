@@ -1,5 +1,5 @@
 <template>
-  <div id="header">
+  <div id="memo-header">
     <button class="menu-button">Open</button>
     <button class="menu-button">Save</button>
     <button class="menu-button">Export</button>
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: "Header",
+  name: "MemoHeader",
   data() {
     return {
       sampleProp: 123
@@ -23,7 +23,8 @@ export default {
 <style lang="scss" scoped>
 $headerBackgroundColor: #0e521d;
 $menuItemHeight: 48px;
-#header {
+
+#memo-header {
   width: 100%;
   min-height: $menuItemHeight;
   background-color: $headerBackgroundColor;

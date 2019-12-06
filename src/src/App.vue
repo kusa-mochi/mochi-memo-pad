@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-    <Header></Header>
-    <Editor></Editor>
+    <memo-header></memo-header>
+    <memo-editor></memo-editor>
   </div>
 </template>
 
 <script>
-import Header from "./components/Header.vue";
-import Editor from "./components/Editor.vue";
+import MemoHeader from "./components/MemoHeader.vue";
+import MemoEditor from "./components/MemoEditor.vue";
 
 export default {
   name: "app",
   components: {
-    Header,
-    Editor
+    MemoHeader,
+    MemoEditor
   }
 };
 </script>
