@@ -1,9 +1,10 @@
 <template>
   <div id="header">
-    <button class="menu-button">開く</button>
-    <button class="menu-button">保存</button>
+    <button class="menu-button">Open</button>
+    <button class="menu-button">Save</button>
+    <button class="menu-button">Export</button>
     <div class="memo-title">
-      <span class="memo-title__no-saved">*</span><span class="memo-title__main" title="レポートのタイトルカレーはうまい寿司もうまいラーメンもうまいあれもうまいこれもうまい">レポートのタイトルカレーはうまい寿司もうまいラーメンもうまいあれもうまいこれもうまい</span>
+      <span class="memo-title__no-saved">*</span><span class="memo-title__main" title="Title is here. Title is here. Title is here. Title is here. Title is here. Title is here.">Title is here. Title is here. Title is here. Title is here. Title is here. Title is here.</span>
     </div>
   </div>
 </template>
@@ -36,10 +37,11 @@ $menuItemHeight: 48px;
   align-content: flex-start;
 
   .menu-button {
-    width: 100px;
     height: $menuItemHeight;
+    padding: 0 16px;
     background-color: transparent;
     color: white;
+    font-size: 14px;
     border: none;
     outline: none;
 
