@@ -1,19 +1,19 @@
 <template>
-    <!-- You can write an HTML structure here. -->
-    <div></div>
+  <div id="edit-item">
+      <slot></slot>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'EditItem',
-    data () {
-        return {
-            sampleProp: 123
-        };
-    }
-}
+  name: "EditItem",
+  data() {
+    return {
+      sampleProp: 123
+    };
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-    /* You can write Sass styles here. */
 </style>

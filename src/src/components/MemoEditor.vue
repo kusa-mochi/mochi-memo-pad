@@ -27,6 +27,9 @@ export default {
 $editorBorderColor: #aaaaaa;
 
 #memo-editor {
+  position: relative;
+  height: 100%;
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

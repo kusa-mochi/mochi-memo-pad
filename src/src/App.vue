@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <memo-header></memo-header>
-    <memo-editor></memo-editor>
+    <div class="editor-container">
+      <memo-editor></memo-editor>
+    </div>
   </div>
 </template>
 
@@ -23,11 +25,23 @@ export default {
   margin: 0;
   padding: 0;
 }
+html, body {
+  width: 100%;
+  height: 100%;
+}
 #app {
   display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  .editor-container {
+    position: relative;
+    height: calc(100% - 48px);
+  }
 }
 </style>

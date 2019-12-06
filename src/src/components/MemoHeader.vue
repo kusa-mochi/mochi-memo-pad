@@ -28,7 +28,7 @@ $menuItemHeight: 48px;
   width: 100%;
   min-height: $menuItemHeight;
   background-color: $headerBackgroundColor;
-  position: fixed;
+  position: relative;
 
   display: flex;
   flex-direction: row;

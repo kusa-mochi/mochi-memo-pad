@@ -16,7 +16,7 @@ export default {
 <style lang="scss" scoped>
 #editor-side {
   width: 300px;
-  height: 2000px;
+  height: 100%;
   background-color: #f2f2f2;
 }
 </style>
