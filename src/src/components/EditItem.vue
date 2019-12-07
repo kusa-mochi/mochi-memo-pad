@@ -64,6 +64,7 @@ $tab_item_height: 40px;
         width: $tab_item_width;
         height: $tab_item_height;
         pointer-events: none;
+        border: 1px #169632 solid;
 
         display: flex;
         flex-direction: row;
