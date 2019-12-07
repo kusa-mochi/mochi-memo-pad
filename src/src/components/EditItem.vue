@@ -78,6 +78,7 @@ $tab_item_height: 40px;
   .visual-pane,
   .code-pane {
     width: 100%;
+    margin: 0 0 16px 0;
 
     &:hover {
       box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.4);
