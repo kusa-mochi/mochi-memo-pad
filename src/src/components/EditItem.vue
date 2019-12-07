@@ -65,9 +65,6 @@ export default {
         flex-wrap: nowrap;
         justify-content: center;
         align-items: center;
-
-        label {
-        }
       }
     }
   }
