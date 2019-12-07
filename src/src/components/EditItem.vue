@@ -49,6 +49,7 @@ $tab_item_height: 40px;
         width: $tab_item_width;
         height: 100%;
         opacity: 0;
+        cursor: pointer;
 
         &:checked + .tab-item__label {
           background-color: #169632;
