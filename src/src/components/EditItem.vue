@@ -10,7 +10,7 @@
       <div class="tab-item">
         <input type="radio" value="code" v-model="selectedMode" />
         <div class="tab-item__label">
-          <label>Code</label>
+          <label>&lt;/&gt;</label>
         </div>
       </div>
     </div>
