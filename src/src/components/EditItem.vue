@@ -31,6 +31,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$tab_item_width: 80px;
+$tab_item_height: 40px;
+
 #edit-item {
   width: 100%;
 
@@ -40,10 +43,11 @@ export default {
 
     .tab-item {
       position: relative;
+      height: $tab_item_height;
 
       input {
-        width: 100px;
-        height: 48px;
+        width: $tab_item_width;
+        height: 100%;
         opacity: 0;
 
         &:checked + .tab-item__label {
@@ -56,8 +60,8 @@ export default {
         position: absolute;
         top: 0;
         left: 0;
-        width: 100px;
-        height: 48px;
+        width: $tab_item_width;
+        height: $tab_item_height;
         pointer-events: none;
 
         display: flex;
