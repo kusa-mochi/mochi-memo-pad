@@ -21,13 +21,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$headerBackgroundColor: #0e521d;
+@import "../assets/colors";
+
 $menuItemHeight: 48px;
 
 #memo-header {
   width: 100%;
   min-height: $menuItemHeight;
-  background-color: $headerBackgroundColor;
+  background-color: $theme_color;
   position: relative;
 
   display: flex;

@@ -18,6 +18,7 @@ export default {
 
 <style lang="scss" scoped>
 $tool_icon_height: 32px;
+@import "../assets/colors";
 
 .edit-object {
   position: relative;
@@ -32,7 +33,7 @@ $tool_icon_height: 32px;
     top: -$tool_icon_height;
     left: 0;
     height: $tool_icon_height;
-    background-color: #169632;
+    background-color: $theme_color;
     color: white;
     opacity: 0;
   }

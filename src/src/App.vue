@@ -21,6 +21,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "assets/colors";
 * {
   margin: 0;
   padding: 0;
@@ -30,6 +31,9 @@ html,
 body {
   width: 100%;
   height: 100%;
+}
+.mochi-icon {
+  fill: $theme_color;
 }
 #app {
   display: flex;
