@@ -1,7 +1,8 @@
 <template>
   <button class="edit-object">
     <div class="edit-object__content">
-      <div class="edit-object__body" role="textbox" contenteditable="true">
+      <div class="edit-object__body">
+        <paragraph-editor></paragraph-editor>
       </div>
       <div class="edit-object__tool-icons">menu icons are here.</div>
       <div class="edit-object__add-prev-button">
@@ -16,11 +17,13 @@
 
 <script>
 import PlusIcon from "./icons/PlusIcon.vue";
+import ParagraphEditor from "./EditorComponents/ParagraphEditor.vue";
 
 export default {
   name: "EditObject",
   components: {
-    PlusIcon
+    PlusIcon,
+    ParagraphEditor
   }
 };
 </script>
@@ -45,23 +48,6 @@ $tool_icon_height: 24px;
   .edit-object__body {
     width: 100%;
     height: 100%;
-    padding: 16px;
-    font-size: 20px;
-    text-align: left;
-    outline: none;
-
-    &::before {
-      position: absolute;
-      content: '';
-      top: -8px;
-      right: -8px;
-      bottom: -8px;
-      left: -8px;
-    }
-
-    &:focus {
-      box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.8);
-    }
   }
 
   .edit-object__tool-icons {
