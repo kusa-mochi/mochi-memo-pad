@@ -57,7 +57,6 @@ $tool_icon_height: 24px;
       right: -8px;
       bottom: -8px;
       left: -8px;
-      // border: 1px gray solid;
     }
 
     &:focus {
@@ -103,9 +102,5 @@ $tool_icon_height: 24px;
       opacity: 1;
     }
   }
-
-  // &:focus {
-  //   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.8);
-  // }
 }
 </style>
