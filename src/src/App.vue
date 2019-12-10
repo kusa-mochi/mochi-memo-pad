@@ -31,6 +31,7 @@ html,
 body {
   width: 100%;
   height: 100%;
+  background-color: rgba($theme_color, 0.1);
 }
 .mochi-icon {
   fill: $theme_color;
@@ -48,6 +49,7 @@ body {
   .editor-container {
     position: relative;
     height: calc(100% - 48px);
+    background-color: white;
   }
 }
 </style>
