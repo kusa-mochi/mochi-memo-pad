@@ -65,7 +65,10 @@ $tool_icon_height: 24px;
     position: absolute;
     width: 24px;
     height: 24px;
+    background-color: white;
+    border-radius: 12px;
     opacity: 0;
+    cursor: pointer;
   }
 
   .edit-object__add-prev-button {
