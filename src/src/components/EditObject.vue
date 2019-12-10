@@ -1,5 +1,5 @@
 <template>
-  <button class="edit-object">
+  <div class="edit-object" tabindex="0">
     <div class="edit-object__content">
       <div class="edit-object__body">
         <paragraph-editor></paragraph-editor>
@@ -12,7 +12,7 @@
         <plus-icon></plus-icon>
       </div>
     </div>
-  </button>
+  </div>
 </template>
 
 <script>
