@@ -15,8 +15,8 @@ export default {
 
 <style lang="scss" scoped>
 .paragraph-editor {
-  padding: 16px;
-  font-size: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
   text-align: left;
   outline: none;
 
