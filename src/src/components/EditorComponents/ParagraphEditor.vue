@@ -20,15 +20,6 @@ export default {
   text-align: left;
   outline: none;
 
-  &::before {
-    position: absolute;
-    content: "";
-    top: -8px;
-    right: -8px;
-    bottom: -8px;
-    left: -8px;
-  }
-
   &:focus {
     box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.8);
   }
