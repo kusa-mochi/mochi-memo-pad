@@ -24,6 +24,7 @@ export default {
 #editor-main {
   width: 800px;
   height: 100%;
+  overflow-x: hidden;
   overflow-y: scroll;
 }
 </style>
