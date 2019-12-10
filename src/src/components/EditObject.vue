@@ -81,8 +81,7 @@ $tool_icon_height: 24px;
     left: calc(50% - 12px);
   }
 
-  &:hover,
-  &:focus {
+  &:hover {
     box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3);
 
     .edit-object__tool-icons,
