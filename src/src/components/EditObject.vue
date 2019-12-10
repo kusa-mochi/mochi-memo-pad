@@ -4,7 +4,9 @@
       <div class="edit-object__body">
         <paragraph-editor></paragraph-editor>
       </div>
-      <div class="edit-object__tool-icons">menu icons are here.</div>
+      <div class="edit-object__tool-icons">
+        <paragraph-editor-menu></paragraph-editor-menu>
+      </div>
       <div class="edit-object__add-prev-button">
         <plus-icon></plus-icon>
       </div>
@@ -18,12 +20,14 @@
 <script>
 import PlusIcon from "./icons/PlusIcon.vue";
 import ParagraphEditor from "./EditorComponents/ParagraphEditor.vue";
+import ParagraphEditorMenu from "./EditorComponents/ParagraphEditorMenu.vue";
 
 export default {
   name: "EditObject",
   components: {
     PlusIcon,
-    ParagraphEditor
+    ParagraphEditor,
+    ParagraphEditorMenu
   }
 };
 </script>
@@ -55,8 +59,6 @@ $tool_icon_height: 24px;
     top: -$tool_icon_height;
     left: 0;
     height: $tool_icon_height;
-    background-color: $theme_color;
-    color: white;
     opacity: 0;
   }
 
