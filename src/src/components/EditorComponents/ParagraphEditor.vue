@@ -1,15 +1,13 @@
 <template>
-  <div class="paragraph-editor" role="textbox" contenteditable="true"></div>
+  <div class="paragraph-editor" role="textbox" contenteditable="true">{{this.$store.state.editingData[1].rawHTML}}</div>
 </template>
 
 <script>
 export default {
   name: "ParagraphEditor",
-  data() {
-    return {
-      sampleProp: 123
-    };
-  }
+  props: [
+    "id"
+  ]
 };
 </script>
 

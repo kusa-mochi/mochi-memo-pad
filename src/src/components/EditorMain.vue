@@ -1,6 +1,6 @@
 <template>
   <div id="editor-main">
-      <edit-object v-for="item in this.$store.state.editingData" v-bind:key="item.id"></edit-object>
+      <edit-object v-for="item in this.$store.state.editingData" v-bind:key="item.id" v-bind:id="item.id"></edit-object>
   </div>
 </template>
 

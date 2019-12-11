@@ -2,7 +2,7 @@
   <div class="edit-object" tabindex="0">
     <div class="edit-object__content">
       <div class="edit-object__body">
-        <paragraph-editor></paragraph-editor>
+        <paragraph-editor v-bind:id="id"></paragraph-editor>
       </div>
       <div class="edit-object__tool-icons">
         <paragraph-editor-menu></paragraph-editor-menu>
@@ -24,6 +24,9 @@ import ParagraphEditorMenu from "./EditorComponents/ParagraphEditorMenu.vue";
 
 export default {
   name: "EditObject",
+  props: [
+    "id"
+  ],
   components: {
     PlusIcon,
     ParagraphEditor,
