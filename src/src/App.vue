@@ -1,28 +1,55 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <memo-header></memo-header>
+    <div class="editor-container">
+      <memo-editor></memo-editor>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MemoHeader from "./components/MemoHeader.vue";
+import MemoEditor from "./components/MemoEditor.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    MemoHeader,
+    MemoEditor
   }
-}
+};
 </script>
 
 <style lang="scss">
+@import "assets/colors";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: rgba($theme_color, 0.1);
+}
+.mochi-icon {
+  fill: $theme_color;
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  .editor-container {
+    position: relative;
+    height: calc(100% - 48px);
+    background-color: white;
+  }
 }
 </style>
