@@ -1,5 +1,5 @@
 <template>
-  <div class="paragraph-editor" role="textbox" contenteditable="true">{{this.$store.state.editingData[1].rawHTML}}</div>
+  <div class="paragraph-editor" role="textbox" contenteditable="true">{{this.paragraphBody}}</div>
 </template>
 
 <script>
@@ -7,7 +7,12 @@ export default {
   name: "ParagraphEditor",
   props: [
     "id"
-  ]
+  ],
+  computed: {
+    paragraphBody() {
+      return this.$store.state.editingData[this.id].rawHTML.replace("<p>", "").replace("</p>", "");
+    }
+  }
 };
 </script>
 
