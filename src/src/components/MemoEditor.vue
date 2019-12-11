@@ -36,7 +36,7 @@ $editorBorderColor: #aaaaaa;
   justify-content: center;
   align-items: flex-start;
   align-content: flex-start;
-  border-left: 1px $editorBorderColor solid;
-  border-right: 1px $editorBorderColor solid;
+  border: none;
+  box-shadow: 0 0 3px 2px rgba(black, 0.3);
 }
 </style>
