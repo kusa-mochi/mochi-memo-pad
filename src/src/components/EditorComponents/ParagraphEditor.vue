@@ -5,12 +5,12 @@
 <script>
 export default {
   name: "ParagraphEditor",
-  props: [
-    "id"
-  ],
+  props: ["id"],
   computed: {
     paragraphBody() {
-      return this.$store.state.editingData[this.id].rawHTML.replace("<p>", "").replace("</p>", "");
+      let output = this.$store.state.editingData[this.id].rawHTML;
+      output = output.substring(3, output.length - 4);
+      return output;
     }
   }
 };
