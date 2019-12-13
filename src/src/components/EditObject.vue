@@ -88,6 +88,7 @@ $tool_icon_height: 24px;
 
   &:hover {
     box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3);
+    z-index: 10;
 
     .edit-object__tool-icons,
     .edit-object__add-prev-button,
