@@ -46,6 +46,10 @@ $tool_icon_height: 24px;
   border: none;
   outline: none;
 
+  &:nth-of-type(1) {
+    margin-top: $tool_icon_height;
+  }
+
   .edit-object__content {
     position: relative;
     width: 100%;
