@@ -18,8 +18,12 @@ export default new Vuex.Store({
       },
       {
         id: 3,
-        editorType: "paragraph",
-        data: "あいうえお、かきくけこ。"
+        editorType: "list",
+        data: [
+          "アイテム１",
+          "アイテム２",
+          "アイテム３"
+        ]
       },
       {
         id: 4,
