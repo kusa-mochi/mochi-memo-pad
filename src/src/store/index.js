@@ -9,152 +9,152 @@ export default new Vuex.Store({
       {
         id: 1,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 2,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。"
       },
       {
         id: 3,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 4,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 5,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 6,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 7,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。"
       },
       {
         id: 8,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 9,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。"
       },
       {
         id: 10,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 11,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 12,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 13,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 14,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 15,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 16,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 17,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 18,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 19,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 20,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 21,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 22,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 23,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 24,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 25,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 26,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 27,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 28,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 29,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       },
       {
         id: 30,
         editorType: "paragraph",
-        rawHTML: "<p>あいうえお、かきくけこ。</p>"
+        data: "あいうえお、かきくけこ。"
       }
     ]
   },
