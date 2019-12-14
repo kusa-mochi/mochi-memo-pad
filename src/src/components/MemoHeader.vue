@@ -63,10 +63,14 @@ export default {
     NumberedListHTML(dataItem) {
       return this.NumberedListHTMLlet(dataItem.data);
     },
-    Open() {
-
-    },
+    Open() {},
     Save() {
+      const saveData = JSON.stringify(this.$store.state.editingData);
+      const a = document.createElement("a");
+      a.href = "data:text/plain," + encodeURIComponent(saveData);
+      a.download = this.$store.state.title + ".json";
+
+      a.click();
     },
     Export() {
       let html = "<!DOCTYPE html><html><head>";
