@@ -3,7 +3,7 @@
     <div class="memo-header__left">
       <button class="menu-button">Open</button>
       <button class="menu-button">Save</button>
-      <button class="menu-button">Export</button>
+      <button class="menu-button" v-on:click="Export">Export</button>
       <div class="memo-title">
         <span class="memo-title__no-saved">*</span>
         <span
@@ -23,10 +23,72 @@
 <script>
 export default {
   name: "MemoHeader",
-  data() {
-    return {
-      sampleProp: 123
-    };
+  methods: {
+    ParagraphHTML(dataItem) {
+      return "<p>" + dataItem.data + "</p>";
+    },
+    ListHTMLlet(collection) {
+      if (collection.length === 0) return "";
+
+      let output = "<ul>";
+      collection.forEach(item => {
+        output += "<li>";
+        output += item.content;
+        if (item.children.length > 0) {
+          output += this.ListHTMLlet(item.children);
+        }
+        output += "</li>";
+      });
+      output += "</ul>";
+      return output;
+    },
+    ListHTML(dataItem) {
+      return this.ListHTMLlet(dataItem.data);
+    },
+    NumberedListHTMLlet(collection) {
+      if (collection.length === 0) return "";
+
+      let output = "<ol>";
+      collection.forEach(item => {
+        output += "<li>";
+        output += item.content;
+        if (item.children.length > 0) {
+          output += this.ListHTMLlet(item.children);
+        }
+        output += "</li>";
+      });
+      output += "</ol>";
+      return output;
+    },
+    NumberedListHTML(dataItem) {
+      return this.NumberedListHTMLlet(dataItem.data);
+    },
+    Export() {
+      let html = "<!DOCTYPE html><html><head>";
+      html += "</head><body>";
+      this.$store.state.editingData.forEach(dataItem => {
+        switch (dataItem.editorType) {
+          case "paragraph":
+            html += this.ParagraphHTML(dataItem);
+            break;
+          case "list":
+            html += this.ListHTML(dataItem);
+            break;
+          case "number-list":
+            html += this.NumberedListHTML(dataItem);
+            break;
+          default:
+            break;
+        }
+      });
+      html += "</body></html>";
+
+      const a = document.createElement("a");
+      a.href = "data:text/plain," + encodeURIComponent(html);
+      a.download = "no title.html";
+
+      a.click();
+    }
   }
 };
 </script>
