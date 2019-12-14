@@ -94,12 +94,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/colors";
-
-$menuItemHeight: 40px;
+@import "../assets/assets";
 
 @mixin header_button() {
-  height: $menuItemHeight;
+  height: $header_height;
   padding: 0 16px;
   background-color: transparent;
   color: white;
@@ -114,7 +112,7 @@ $menuItemHeight: 40px;
 
 #memo-header {
   width: 100%;
-  min-height: $menuItemHeight;
+  min-height: $header_height;
   background-color: $theme_color;
   position: relative;
 
@@ -145,7 +143,7 @@ $menuItemHeight: 40px;
     .memo-title {
       margin: auto 8px;
       max-width: 500px;
-      height: $menuItemHeight;
+      height: $header_height;
       background-color: transparent;
       color: white;
       border: none;
@@ -180,7 +178,7 @@ $menuItemHeight: 40px;
     .maximize-button,
     .close-button {
       @include header_button();
-      width: $menuItemHeight;
+      width: $header_height;
     }
   }
 }
