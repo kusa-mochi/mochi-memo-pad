@@ -9,6 +9,12 @@
         <list-editor
           v-else-if="EditorTypeIs('list')"
           v-bind:id="id"
+          list-type="list"
+        ></list-editor>
+        <list-editor
+          v-else-if="EditorTypeIs('number-list')"
+          v-bind:id="id"
+          list-type="number-list"
         ></list-editor>
       </div>
       <div class="edit-object__tool-icons">

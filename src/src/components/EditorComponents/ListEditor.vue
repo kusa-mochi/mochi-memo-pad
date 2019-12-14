@@ -1,6 +1,9 @@
 <template>
   <div class="list-editor">
-    <list-editor-item v-bind:itemData="this.$store.state.editingData[this.id].data"></list-editor-item>
+    <list-editor-item
+      v-bind:itemData="this.$store.state.editingData[this.id].data"
+      v-bind:list-type="listType"
+    ></list-editor-item>
   </div>
 </template>
 
@@ -9,7 +12,7 @@ import ListEditorItem from "./ListEditorItem.vue";
 
 export default {
   name: "ListEditor",
-  props: ["id"],
+  props: ["id", "listType"],
   computed: {
     RawHTML() {
       return GetRawHTMLlet(this.$store.state.editingData[this.id].data);
@@ -19,7 +22,7 @@ export default {
     GetRawHTMLlet(collection) {
       if (collection.length === 0) return "";
 
-      let output = "<ul>";
+      let output = listType === "list" ? "<ul>" : "<ol>";
       collection.forEach(item => {
         output += "<li>";
         output += item.content;
@@ -28,7 +31,7 @@ export default {
         }
         output += "</li>";
       });
-      output += "</ul>";
+      output += listType === "list" ? "</ul>" : "</ol>";
       return output;
     }
   },

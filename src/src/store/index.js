@@ -86,6 +86,75 @@ export default new Vuex.Store({
         ]
       },
       {
+        id: 103,
+        editorType: "number-list",
+        data: [
+          {
+            id: 1,
+            content: "アイテム１",
+            children: []
+          },
+          {
+            id: 2,
+            content: "アイテム２",
+            children: [
+              {
+                id: 1,
+                content: "アイテム２－１",
+                children: []
+              },
+              {
+                id: 2,
+                content: "アイテム２－２",
+                children: [
+                  {
+                    id: 1,
+                    content: "アイテム２－２－１",
+                    children: []
+                  },
+                  {
+                    id: 2,
+                    content: "アイテム２－２－２",
+                    children: [
+                      {
+                        id: 1,
+                        content: "アイテム２－２－２－１",
+                        children: []
+                      },
+                      {
+                        id: 2,
+                        content: "アイテム２－２－２－２",
+                        children: []
+                      },
+                      {
+                        id: 3,
+                        content: "アイテム２－２－２－３",
+                        children: []
+                      }
+                    ]
+                  },
+                  {
+                    id: 4,
+                    content: "アイテム２－２－３",
+                    children: []
+                  }
+                ]
+              },
+              {
+                id: 4,
+                content: "アイテム２－３",
+                children: []
+              }
+            ]
+          },
+          {
+            id: 4,
+            content: "アイテム３",
+            children: []
+          }
+        ]
+      },
+      {
         id: 4,
         editorType: "paragraph",
         data: "あいうえお、かきくけこ。"
