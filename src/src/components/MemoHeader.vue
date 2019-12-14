@@ -8,8 +8,8 @@
         <span class="memo-title__no-saved">*</span>
         <span
           class="memo-title__main"
-          title="Title is here. Title is here. Title is here. Title is here. Title is here. Title is here."
-        >Title is here. Title is here. Title is here. Title is here. Title is here. Title is here.</span>
+          v-bind:title="this.$store.state.title"
+        >{{this.$store.state.title}}</span>
       </div>
     </div>
     <div class="memo-header__right">
@@ -85,7 +85,7 @@ export default {
 
       const a = document.createElement("a");
       a.href = "data:text/plain," + encodeURIComponent(html);
-      a.download = "no title.html";
+      a.download = this.$store.state.title + ".html";
 
       a.click();
     }

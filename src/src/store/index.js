@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    title: "Title is here.Title is here.Title is here.Title is here.Title is here.Title is here.Title is here.Title is here.Title is here.Title is here.Title is here.",
     editingData: [
       {
         id: 1,
