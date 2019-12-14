@@ -1,8 +1,8 @@
 <template>
   <div id="memo-header">
     <div class="memo-header__left">
-      <button class="menu-button">Open</button>
-      <button class="menu-button">Save</button>
+      <button class="menu-button" v-on:click="Open">Open</button>
+      <button class="menu-button" v-on:click="Save">Save</button>
       <button class="menu-button" v-on:click="Export">Export</button>
       <div class="memo-title">
         <span class="memo-title__no-saved">*</span>
@@ -62,6 +62,11 @@ export default {
     },
     NumberedListHTML(dataItem) {
       return this.NumberedListHTMLlet(dataItem.data);
+    },
+    Open() {
+
+    },
+    Save() {
     },
     Export() {
       let html = "<!DOCTYPE html><html><head>";
