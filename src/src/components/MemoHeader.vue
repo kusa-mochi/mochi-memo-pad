@@ -14,14 +14,16 @@
       </div>
     </div>
     <div class="memo-header__right">
-      <button class="minimize-button">_</button>
-      <button class="maximize-button">□</button>
-      <button class="close-button">x</button>
+      <button class="minimize-button" v-on:click="Minimize">_</button>
+      <button class="maximize-button" v-on:click="Maximize">□</button>
+      <button class="close-button" v-on:click="Close">x</button>
     </div>
   </div>
 </template>
 
 <script>
+import { ipcRenderer } from "electron";
+
 export default {
   name: "MemoHeader",
   methods: {
@@ -112,6 +114,15 @@ export default {
       a.download = this.$store.state.title + ".html";
 
       a.click();
+    },
+    Minimize() {
+      ipcRenderer.send("window-min");
+    },
+    Maximize() {
+      ipcRenderer.send("window-max");
+    },
+    Close() {
+      window.close();
     }
   }
 };
