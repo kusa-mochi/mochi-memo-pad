@@ -1,6 +1,6 @@
 'use strict'
 
-import { app, protocol, BrowserWindow } from 'electron'
+import { app, protocol, BrowserWindow, ipcMain } from 'electron'
 import {
   createProtocol,
   installVueDevtools
@@ -17,8 +17,8 @@ protocol.registerSchemesAsPrivileged([{ scheme: 'app', privileges: { secure: tru
 function createWindow() {
   // Create the browser window.
   win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1200,
+    height: 800,
     frame: false,
     webPreferences: {
       nodeIntegration: true
@@ -76,6 +76,16 @@ app.on('ready', async () => {
 
   }
   createWindow()
+})
+
+ipcMain.on('window-min', function () {
+  if (win != null)
+    win.minimize();
+})
+
+ipcMain.on('window-max', function () {
+  if (win != null)
+    win.isMaximized() ? win.unmaximize() : win.maximize();
 })
 
 // Exit cleanly on request from parent process in development mode.
