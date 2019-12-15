@@ -65,14 +65,19 @@ export default {
       return this.NumberedListHTMLlet(dataItem.data);
     },
     Open() {
-      // const input = document.createElement("input");
-      // input.type = "file";
-      // input.addEventListener("change", e => {
-      //   var result = e.target.files;
-      //   var tmp = JSON.parse(result);
-      //   alert(result);
-      // });
-      // input.click();
+      const input = document.createElement("input");
+      input.type = "file";
+      input.addEventListener("change", e => {
+        var result = e.target.files[0];
+        var reader = new FileReader();
+        reader.readAsText(result);
+        reader.addEventListener("load", () => {
+          var title = result.name.match(/(.*)\.json$/)[1];
+          this.$store.state.title = title;
+          this.$store.state.editingData = JSON.parse(reader.result);
+        });
+      });
+      input.click();
     },
     Save() {
       const saveData = JSON.stringify(this.$store.state.editingData);
