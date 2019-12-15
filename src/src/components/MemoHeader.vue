@@ -2,6 +2,7 @@
   <div id="memo-header">
     <div class="memo-header__left">
       <button class="menu-button" v-on:click="Open">Open</button>
+      <input id="open-file-input" type="file" />
       <button class="menu-button" v-on:click="Save">Save</button>
       <button class="menu-button" v-on:click="Export">Export</button>
       <div class="memo-title">
@@ -63,7 +64,16 @@ export default {
     NumberedListHTML(dataItem) {
       return this.NumberedListHTMLlet(dataItem.data);
     },
-    Open() {},
+    Open() {
+      // const input = document.createElement("input");
+      // input.type = "file";
+      // input.addEventListener("change", e => {
+      //   var result = e.target.files;
+      //   var tmp = JSON.parse(result);
+      //   alert(result);
+      // });
+      // input.click();
+    },
     Save() {
       const saveData = JSON.stringify(this.$store.state.editingData);
       const a = document.createElement("a");
@@ -190,5 +200,9 @@ export default {
       width: $header_height;
     }
   }
+}
+
+#open-file-input {
+  display: none;
 }
 </style>
