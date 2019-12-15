@@ -1,15 +1,16 @@
 <template>
   <div id="memo-header">
     <div class="memo-header__left">
-      <button class="menu-button">Open</button>
-      <button class="menu-button">Save</button>
-      <button class="menu-button">Export</button>
+      <button class="menu-button" v-on:click="Open">Open</button>
+      <input id="open-file-input" type="file" />
+      <button class="menu-button" v-on:click="Save">Save</button>
+      <button class="menu-button" v-on:click="Export">Export</button>
       <div class="memo-title">
         <span class="memo-title__no-saved">*</span>
         <span
           class="memo-title__main"
-          title="Title is here. Title is here. Title is here. Title is here. Title is here. Title is here."
-        >Title is here. Title is here. Title is here. Title is here. Title is here. Title is here.</span>
+          v-bind:title="this.$store.state.title"
+        >{{this.$store.state.title}}</span>
       </div>
     </div>
     <div class="memo-header__right">
@@ -23,21 +24,104 @@
 <script>
 export default {
   name: "MemoHeader",
-  data() {
-    return {
-      sampleProp: 123
-    };
+  methods: {
+    ParagraphHTML(dataItem) {
+      return "<p>" + dataItem.data + "</p>";
+    },
+    ListHTMLlet(collection) {
+      if (collection.length === 0) return "";
+
+      let output = "<ul>";
+      collection.forEach(item => {
+        output += "<li>";
+        output += item.content;
+        if (item.children.length > 0) {
+          output += this.ListHTMLlet(item.children);
+        }
+        output += "</li>";
+      });
+      output += "</ul>";
+      return output;
+    },
+    ListHTML(dataItem) {
+      return this.ListHTMLlet(dataItem.data);
+    },
+    NumberedListHTMLlet(collection) {
+      if (collection.length === 0) return "";
+
+      let output = "<ol>";
+      collection.forEach(item => {
+        output += "<li>";
+        output += item.content;
+        if (item.children.length > 0) {
+          output += this.ListHTMLlet(item.children);
+        }
+        output += "</li>";
+      });
+      output += "</ol>";
+      return output;
+    },
+    NumberedListHTML(dataItem) {
+      return this.NumberedListHTMLlet(dataItem.data);
+    },
+    Open() {
+      const input = document.createElement("input");
+      input.type = "file";
+      input.addEventListener("change", e => {
+        var result = e.target.files[0];
+        var reader = new FileReader();
+        reader.readAsText(result);
+        reader.addEventListener("load", () => {
+          var title = result.name.match(/(.*)\.json$/)[1];
+          this.$store.state.title = title;
+          this.$store.state.editingData = JSON.parse(reader.result);
+        });
+      });
+      input.click();
+    },
+    Save() {
+      const saveData = JSON.stringify(this.$store.state.editingData);
+      const a = document.createElement("a");
+      a.href = "data:text/plain," + encodeURIComponent(saveData);
+      a.download = this.$store.state.title + ".json";
+
+      a.click();
+    },
+    Export() {
+      let html = "<!DOCTYPE html><html><head>";
+      html += "</head><body>";
+      this.$store.state.editingData.forEach(dataItem => {
+        switch (dataItem.editorType) {
+          case "paragraph":
+            html += this.ParagraphHTML(dataItem);
+            break;
+          case "list":
+            html += this.ListHTML(dataItem);
+            break;
+          case "number-list":
+            html += this.NumberedListHTML(dataItem);
+            break;
+          default:
+            break;
+        }
+      });
+      html += "</body></html>";
+
+      const a = document.createElement("a");
+      a.href = "data:text/plain," + encodeURIComponent(html);
+      a.download = this.$store.state.title + ".html";
+
+      a.click();
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/colors";
-
-$menuItemHeight: 40px;
+@import "../assets/assets";
 
 @mixin header_button() {
-  height: $menuItemHeight;
+  height: $header_height;
   padding: 0 16px;
   background-color: transparent;
   color: white;
@@ -52,7 +136,7 @@ $menuItemHeight: 40px;
 
 #memo-header {
   width: 100%;
-  min-height: $menuItemHeight;
+  min-height: $header_height;
   background-color: $theme_color;
   position: relative;
 
@@ -83,7 +167,7 @@ $menuItemHeight: 40px;
     .memo-title {
       margin: auto 8px;
       max-width: 500px;
-      height: $menuItemHeight;
+      height: $header_height;
       background-color: transparent;
       color: white;
       border: none;
@@ -118,8 +202,12 @@ $menuItemHeight: 40px;
     .maximize-button,
     .close-button {
       @include header_button();
-      width: $menuItemHeight;
+      width: $header_height;
     }
   }
+}
+
+#open-file-input {
+  display: none;
 }
 </style>

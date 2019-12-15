@@ -21,7 +21,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "assets/colors";
+@import "assets/assets";
+
 * {
   margin: 0;
   padding: 0;
@@ -48,7 +49,7 @@ body {
 
   .editor-container {
     position: relative;
-    height: calc(100% - 48px);
+    height: calc(100% - #{$header_height});
     background-color: white;
   }
 }
