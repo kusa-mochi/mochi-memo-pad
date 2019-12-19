@@ -3,7 +3,7 @@
     <div class="edit-object__content">
       <div class="edit-object__body">
         <paragraph-editor v-if="EditorTypeIs('paragraph')" v-bind:id="id"></paragraph-editor>
-        <html-editor v-else-if="EditorTypeIs('html')" v-bind:id="id" is-visualizing="true"></html-editor>
+        <html-editor v-else-if="EditorTypeIs('html')" v-bind:id="id" v-bind:is-visualizing="true"></html-editor>
         <list-editor v-else-if="EditorTypeIs('list')" v-bind:id="id" list-type="list"></list-editor>
         <list-editor v-else-if="EditorTypeIs('number-list')" v-bind:id="id" list-type="number-list"></list-editor>
       </div>
