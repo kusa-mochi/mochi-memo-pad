@@ -14,16 +14,11 @@
       </div>
     </div>
     <div class="memo-header__right">
-      <button class="minimize-button" v-on:click="Minimize">_</button>
-      <button class="maximize-button" v-on:click="Maximize">□</button>
-      <button class="close-button" v-on:click="Close">x</button>
     </div>
   </div>
 </template>
 
 <script>
-import { ipcRenderer } from "electron";
-
 export default {
   name: "MemoHeader",
   methods: {
@@ -115,15 +110,6 @@ export default {
 
       a.click();
     },
-    Minimize() {
-      ipcRenderer.send("window-min");
-    },
-    Maximize() {
-      ipcRenderer.send("window-max");
-    },
-    Close() {
-      window.close();
-    }
   }
 };
 </script>
@@ -208,13 +194,6 @@ export default {
     flex-wrap: nowrap;
     justify-content: flex-end;
     align-items: flex-start;
-
-    .minimize-button,
-    .maximize-button,
-    .close-button {
-      @include header_button();
-      width: $header_height;
-    }
   }
 }
 
