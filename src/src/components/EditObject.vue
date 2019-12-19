@@ -22,17 +22,17 @@
         <list-editor-menu v-else-if="EditorTypeIs('list')"></list-editor-menu>
       </div>
       <div class="edit-object__add-prev-button">
-        <plus-icon></plus-icon>
+        <icon icon-name="plus" size="24"></icon>
       </div>
       <div class="edit-object__add-next-button">
-        <plus-icon></plus-icon>
+        <icon icon-name="plus" size="24"></icon>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import PlusIcon from "./icons/PlusIcon.vue";
+import Icon from "./Icon.vue";
 import ParagraphEditor from "./EditorComponents/ParagraphEditor.vue";
 import ParagraphEditorMenu from "./EditorComponents/ParagraphEditorMenu.vue";
 import ListEditor from "./EditorComponents/ListEditor.vue";
@@ -47,7 +47,7 @@ export default {
     }
   },
   components: {
-    PlusIcon,
+    Icon,
     ParagraphEditor,
     ParagraphEditorMenu,
     ListEditor,
@@ -57,8 +57,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/colors";
-$tool_icon_height: 24px;
+@import "../assets/assets";
 
 .edit-object {
   position: relative;
