@@ -17,6 +17,7 @@ export default new Vuex.Store({
       {
         id: 101,
         editorType: "html",
+        isVisualized: false,
         data: '<p>あああ<span style="color:blue; font-weight: bold;">いいい</span>ううう</p>'
       },
       {

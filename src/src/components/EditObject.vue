@@ -3,13 +3,13 @@
     <div class="edit-object__content">
       <div class="edit-object__body">
         <paragraph-editor v-if="EditorTypeIs('paragraph')" v-bind:id="id"></paragraph-editor>
-        <html-editor v-else-if="EditorTypeIs('html')" v-bind:id="id" v-bind:is-visualizing="true"></html-editor>
+        <html-editor v-else-if="EditorTypeIs('html')" v-bind:id="id"></html-editor>
         <list-editor v-else-if="EditorTypeIs('list')" v-bind:id="id" list-type="list"></list-editor>
         <list-editor v-else-if="EditorTypeIs('number-list')" v-bind:id="id" list-type="number-list"></list-editor>
       </div>
       <div class="edit-object__tool-icons">
         <paragraph-editor-menu v-if="EditorTypeIs('paragraph')"></paragraph-editor-menu>
-        <html-editor-menu v-else-if="EditorTypeIs('html')"></html-editor-menu>
+        <html-editor-menu v-else-if="EditorTypeIs('html')" v-bind:id="id"></html-editor-menu>
         <list-editor-menu v-else-if="EditorTypeIs('list')"></list-editor-menu>
         <list-editor-menu v-else-if="EditorTypeIs('number-list')"></list-editor-menu>
       </div>
@@ -34,7 +34,12 @@ import ListEditorMenu from "./EditorComponents/ListEditorMenu.vue";
 
 export default {
   name: "EditObject",
-  props: ["id"],
+  props: {
+    id: {
+      type: Number,
+      default: 1,
+    }
+  },
   methods: {
     EditorTypeIs(typeName) {
       return this.$store.state.editingData[this.id].editorType === typeName;
