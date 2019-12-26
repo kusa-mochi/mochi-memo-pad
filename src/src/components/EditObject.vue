@@ -2,7 +2,12 @@
   <div class="edit-object" tabindex="0">
     <div class="edit-object__content">
       <div class="edit-object__body">
-        <paragraph-editor v-if="EditorTypeIs('paragraph')" v-bind:id="id"></paragraph-editor>
+        <paragraph-editor
+          v-if="EditorTypeIs('paragraph')"
+          ref="paragraphEditor"
+          v-bind:id="id"
+          v-on:focus-next="OnFocusNext"
+        ></paragraph-editor>
         <html-editor v-else-if="EditorTypeIs('html')" v-bind:id="id"></html-editor>
         <list-editor v-else-if="EditorTypeIs('list')" v-bind:id="id" list-type="list"></list-editor>
         <list-editor v-else-if="EditorTypeIs('number-list')" v-bind:id="id" list-type="number-list"></list-editor>
@@ -43,6 +48,12 @@ export default {
   methods: {
     EditorTypeIs(typeName) {
       return this.$store.state.editingData[this.id].editorType === typeName;
+    },
+    OnFocusNext() {
+      this.$emit("focus-next", this.id + 1);
+    },
+    FocusToParagraphEditor() {
+      this.$refs.paragraphEditor.Focus();
     }
   },
   components: {

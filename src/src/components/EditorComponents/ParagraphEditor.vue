@@ -1,9 +1,12 @@
 <template>
-  <div
+  <textarea
+    ref="editorBody"
     class="paragraph-editor"
-    role="textbox"
-    contenteditable="true"
-  >{{this.$store.state.editingData[this.id].data}}</div>
+    v-model="this.$store.state.editingData[this.id].data"
+    v-on:keydown.enter.exact.prevent
+    v-on:keyup.enter.exact="AddEditObject"
+    v-on:keydown.enter.shift.exact="NewLine"
+  ></textarea>
 </template>
 
 <script>
@@ -13,6 +16,21 @@ export default {
     id: {
       type: Number,
       required: true
+}
+  },
+  methods: {
+    AddEditObject() {
+      const date = new Date();
+      this.$store.state.editingData.splice(this.id + 1, 0, {
+        editorType: "paragraph",
+        data: "Hi, I'm Mochi!!"
+      });
+      this.$emit("focus-next");
+    },
+    Focus() {
+      this.$refs.editorBody.focus();
+    },
+    NewLine() {
     }
   }
 };
@@ -20,9 +38,12 @@ export default {
 
 <style lang="scss" scoped>
 .paragraph-editor {
+  display: block;
+  width: 100%;
   padding: 8px 16px;
   font-size: 14px;
   text-align: left;
+  border: none;
   outline: none;
 
   &:focus {

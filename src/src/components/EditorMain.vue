@@ -1,6 +1,12 @@
 <template>
   <div id="editor-main">
-      <edit-object v-for="item in this.$store.state.editingData" v-bind:key="item.id" v-bind:id="item.id"></edit-object>
+    <edit-object
+      v-for="(item, idx) in this.$store.state.editingData"
+      v-bind:ref="idx"
+      v-bind:key="idx"
+      v-bind:id="idx"
+      v-on:focus-next="OnFocusNext"
+    ></edit-object>
   </div>
 </template>
 
@@ -9,9 +15,14 @@ import EditObject from "./EditObject.vue";
 
 export default {
   name: "EditorMain",
+  methods: {
+    OnFocusNext(nextId) {
+      this.$refs[nextId]["0"].FocusToParagraphEditor();
+    }
+  },
   components: {
     EditObject
-  },
+  }
 };
 </script>
 
