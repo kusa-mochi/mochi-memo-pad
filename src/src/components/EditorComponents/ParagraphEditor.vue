@@ -1,11 +1,20 @@
 <template>
-  <div class="paragraph-editor" role="textbox" contenteditable="true">{{this.$store.state.editingData[this.id].data}}</div>
+  <div
+    class="paragraph-editor"
+    role="textbox"
+    contenteditable="true"
+  >{{this.$store.state.editingData[this.id].data}}</div>
 </template>
 
 <script>
 export default {
   name: "ParagraphEditor",
-  props: ["id"],
+  props: {
+    id: {
+      type: Number,
+      required: true
+    }
+  }
 };
 </script>
 

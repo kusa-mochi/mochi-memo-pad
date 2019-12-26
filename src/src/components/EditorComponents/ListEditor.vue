@@ -12,7 +12,16 @@ import ListEditorItem from "./ListEditorItem.vue";
 
 export default {
   name: "ListEditor",
-  props: ["id", "listType"],
+  props: {
+    id: {
+      type: Number,
+      required: true
+    },
+    listType: {
+      type: String,
+      default: "list"
+    }
+  },
   components: {
     ListEditorItem
   }
