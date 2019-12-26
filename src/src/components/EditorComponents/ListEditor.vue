@@ -13,28 +13,6 @@ import ListEditorItem from "./ListEditorItem.vue";
 export default {
   name: "ListEditor",
   props: ["id", "listType"],
-  computed: {
-    RawHTML() {
-      return GetRawHTMLlet(this.$store.state.editingData[this.id].data);
-    }
-  },
-  methods: {
-    GetRawHTMLlet(collection) {
-      if (collection.length === 0) return "";
-
-      let output = listType === "list" ? "<ul>" : "<ol>";
-      collection.forEach(item => {
-        output += "<li>";
-        output += item.content;
-        if (item.children.length > 0) {
-          output += GetRawHTMLlet(item.children);
-        }
-        output += "</li>";
-      });
-      output += listType === "list" ? "</ul>" : "</ol>";
-      return output;
-    }
-  },
   components: {
     ListEditorItem
   }

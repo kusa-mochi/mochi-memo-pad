@@ -5,11 +5,6 @@
 <script>
 export default {
   name: "EditorSide",
-  data() {
-    return {
-      sampleProp: 123
-    };
-  }
 };
 </script>
 
