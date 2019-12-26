@@ -6,11 +6,6 @@
 export default {
   name: "ParagraphEditor",
   props: ["id"],
-  computed: {
-    RawHTML() {
-      return "<p>" + this.$store.state.editingData[this.id].data + "</p>";
-    }
-  }
 };
 </script>
 

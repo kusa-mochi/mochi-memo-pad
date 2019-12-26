@@ -12,11 +12,6 @@ export default {
   components: {
     EditObject
   },
-  data() {
-    return {
-      sampleProp: 123
-    };
-  }
 };
 </script>
 
