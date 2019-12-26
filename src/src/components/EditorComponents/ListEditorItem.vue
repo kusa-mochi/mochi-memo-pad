@@ -1,12 +1,12 @@
 <template>
   <ul v-if="listType === 'list'">
-    <li v-for="item in itemData" v-bind:key="item.id" role="textbox" contenteditable="true">
+    <li v-for="item in itemData" v-bind:key="item.id" role="textbox">
       {{item.content}}
       <list-editor-item v-if="item.children.length > 0" v-bind:item-data="item.children" v-bind:list-type="listType"></list-editor-item>
     </li>
   </ul>
   <ol v-else-if="listType === 'number-list'">
-    <li v-for="item in itemData" v-bind:key="item.id" role="textbox" contenteditable="true">
+    <li v-for="item in itemData" v-bind:key="item.id" role="textbox">
       {{item.content}}
       <list-editor-item v-if="item.children.length > 0" v-bind:item-data="item.children" v-bind:list-type="listType"></list-editor-item>
     </li>
