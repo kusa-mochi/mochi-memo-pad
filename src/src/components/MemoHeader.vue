@@ -13,8 +13,7 @@
         >{{this.$store.state.title}}</span>
       </div>
     </div>
-    <div class="memo-header__right">
-    </div>
+    <div class="memo-header__right"></div>
   </div>
 </template>
 
@@ -24,6 +23,9 @@ export default {
   methods: {
     ParagraphHTML(dataItem) {
       return "<p>" + dataItem.data + "</p>";
+    },
+    HtmlHTML(dataItem) {
+      return dataItem.data;
     },
     ListHTMLlet(collection) {
       if (collection.length === 0) return "";
@@ -92,6 +94,9 @@ export default {
           case "paragraph":
             html += this.ParagraphHTML(dataItem);
             break;
+          case "html":
+            html += this.HtmlHTML(dataItem);
+            break;
           case "list":
             html += this.ListHTML(dataItem);
             break;
@@ -109,7 +114,7 @@ export default {
       a.download = this.$store.state.title + ".html";
 
       a.click();
-    },
+    }
   }
 };
 </script>
