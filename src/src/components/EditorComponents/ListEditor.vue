@@ -1,5 +1,5 @@
 <template>
-  <div class="list-editor">
+  <div class="list-editor" contenteditable="true">
     <list-editor-item
       v-bind:itemData="this.$store.state.editingData[this.id].data"
       v-bind:list-type="listType"
