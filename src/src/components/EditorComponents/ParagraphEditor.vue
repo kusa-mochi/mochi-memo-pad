@@ -16,22 +16,29 @@ export default {
     id: {
       type: Number,
       required: true
-}
+    }
   },
   methods: {
     AddEditObject() {
-      const date = new Date();
+      const cursorPosition = this.$refs.editorBody.selectionStart;
+      const leftString = this.$store.state.editingData[this.id].data.substring(
+        0,
+        cursorPosition
+      );
+      const rightString = this.$store.state.editingData[this.id].data.substring(
+        cursorPosition
+      );
+      this.$store.state.editingData[this.id].data = leftString;
       this.$store.state.editingData.splice(this.id + 1, 0, {
         editorType: "paragraph",
-        data: "Hi, I'm Mochi!!"
+        data: rightString
       });
       this.$emit("focus-next");
     },
     Focus() {
       this.$refs.editorBody.focus();
     },
-    NewLine() {
-    }
+    NewLine() {}
   }
 };
 </script>
