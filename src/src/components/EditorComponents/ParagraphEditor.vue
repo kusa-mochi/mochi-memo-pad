@@ -5,7 +5,12 @@
 <script>
 export default {
   name: "ParagraphEditor",
-  props: ["id"],
+  props: {
+    id: {
+      type: Number,
+      required: true
+    }
+  }
 };
 </script>
 

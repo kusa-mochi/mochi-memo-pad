@@ -18,7 +18,16 @@ import ListEditorItem from "./ListEditorItem.vue";
 
 export default {
   name: "ListEditorItem",
-  props: ["itemData", "listType"],
+  props: {
+    itemData: {
+      type: Object,
+      default: {}
+    },
+    listType: {
+      type: String,
+      default: "list"
+    }
+  },
   components: {
     ListEditorItem
   }
