@@ -7,6 +7,9 @@
         <list-editor v-else-if="EditorTypeIs('list')" v-bind:id="id" list-type="list"></list-editor>
         <list-editor v-else-if="EditorTypeIs('number-list')" v-bind:id="id" list-type="number-list"></list-editor>
       </div>
+      <div class="edit-object__drag-handle">
+        <icon icon-name="drag-handle" size="16"></icon>
+      </div>
       <div class="edit-object__tool-icons">
         <paragraph-editor-menu v-if="EditorTypeIs('paragraph')"></paragraph-editor-menu>
         <html-editor-menu v-else-if="EditorTypeIs('html')" v-bind:id="id"></html-editor-menu>
@@ -82,6 +85,16 @@ export default {
     height: 100%;
   }
 
+  .edit-object__drag-handle {
+    position: absolute;
+    top: 0;
+    left: -32px;
+    width: 32px;
+    height: 32px;
+    padding: 8px;
+    opacity: 0;
+  }
+
   .edit-object__tool-icons {
     position: absolute;
     top: -$tool_icon_height;
@@ -115,6 +128,7 @@ export default {
     box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3);
     z-index: 10;
 
+    .edit-object__drag-handle,
     .edit-object__tool-icons,
     .edit-object__add-prev-button,
     .edit-object__add-next-button {

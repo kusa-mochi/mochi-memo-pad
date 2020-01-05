@@ -22,6 +22,35 @@
       <circle class="mochi-icon" cx="256" cy="256" r="55.091" />
       <circle class="mochi-icon" cx="256" cy="456.909" r="55.091" />
     </g>
+    <g v-else-if="iconName === 'drag-handle'">
+      <rect class="mochi-icon" width="112" height="112" />
+      <rect x="200.008" class="mochi-icon" width="111.984" height="112" />
+      <rect x="400" class="mochi-icon" width="112" height="112" />
+      <rect y="200.008" class="mochi-icon" width="112" height="111.984" />
+      <rect
+        x="200.008"
+        y="200.008"
+        class="mochi-icon"
+        width="111.984"
+        height="111.984"
+      />
+      <rect
+        x="400"
+        y="200.008"
+        class="mochi-icon"
+        width="112"
+        height="111.984"
+      />
+      <rect y="400" class="mochi-icon" width="112" height="112" />
+      <rect
+        x="200.008"
+        y="400"
+        class="mochi-icon"
+        width="111.984"
+        height="112"
+      />
+      <rect x="400" y="400" class="mochi-icon" width="112" height="112" />
+    </g>
   </svg>
 </template>
 
