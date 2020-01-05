@@ -5,11 +5,13 @@
 </template>
 
 <script>
+import Draggable from "vuedraggable";
 import EditObject from "./EditObject.vue";
 
 export default {
   name: "EditorMain",
   components: {
+    Draggable,
     EditObject
   },
 };
