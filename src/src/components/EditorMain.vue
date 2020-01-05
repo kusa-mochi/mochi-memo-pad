@@ -2,13 +2,13 @@
   <div id="editor-main">
     <draggable
       class="editor-main__draggable"
-      v-model="this.$store.state.editingData"
+      v-model="editingData"
       group="editingData"
       v-on:start="drag=true"
       v-on:end="drag=false"
     >
       <edit-object
-        v-for="(item, idx) in this.$store.state.editingData"
+        v-for="(item, idx) in editingData"
         v-bind:key="idx"
         v-bind:id="idx"
       ></edit-object>
@@ -22,6 +22,16 @@ import EditObject from "./EditObject.vue";
 
 export default {
   name: "EditorMain",
+  computed: {
+    editingData: {
+      get() {
+        return this.$store.state.editingData;
+      },
+      set(value) {
+        this.$store.dispatch("updateEditingData", value);
+      }
+    }
+  },
   components: {
     Draggable,
     EditObject

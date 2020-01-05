@@ -245,8 +245,14 @@ export default new Vuex.Store({
     ]
   },
   mutations: {
+    updateEditingDataMutation(state, value) {
+      state.editingData = value;
+    }
   },
   actions: {
+    updateEditingData({ commit }, value) {
+      commit('updateEditingDataMutation', value);
+    }
   },
   modules: {
   }
