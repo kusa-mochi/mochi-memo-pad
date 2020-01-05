@@ -28,7 +28,7 @@ npm run lint
 ### Debug
 
 - install "Debugger for Chrome"
-- make ".vscode" on root if there is no ".vscode" folder.
+- make ".vscode" folder on root if there is no ".vscode" folder.
 - copy ".vscode_backup/launch.json" to ".vscode/launch.json".
 - do "npm run serve"
 - start debugging from "Start debugging" button in side menu on VS Code.
