@@ -1,7 +1,7 @@
 <template>
   <div id="editor-main">
     <draggable class="editor-main__draggable" v-model="this.$store.state.editingData" group="editingData" v-on:start="drag=true" v-on:end="drag=false">
-      <edit-object v-for="item in this.$store.state.editingData" v-bind:key="item.id" v-bind:id="item.id"></edit-object>
+      <edit-object v-for="(item, idx) in this.$store.state.editingData" v-bind:key="idx" v-bind:id="idx"></edit-object>
     </draggable>
   </div>
 </template>
