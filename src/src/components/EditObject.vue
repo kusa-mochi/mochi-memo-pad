@@ -51,7 +51,9 @@ export default {
       return this.$store.state.editingData[this.id].editorType === typeName;
     },
     RemoveObject() {
-      this.$store.dispatch("removeEditingDataAt", this.id);
+      if (window.confirm("Is it OK to remove this paragraph ?")) {
+        this.$store.dispatch("removeEditingDataAt", this.id);
+      }
     }
   },
   components: {
