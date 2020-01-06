@@ -16,7 +16,7 @@
         <list-editor-menu v-else-if="EditorTypeIs('list')"></list-editor-menu>
         <list-editor-menu v-else-if="EditorTypeIs('number-list')"></list-editor-menu>
       </div>
-      <div class="edit-object__remove-button">
+      <div class="edit-object__remove-button" v-on:click="RemoveObject">
         <icon icon-name="garbage" size="24"></icon>
       </div>
       <div class="edit-object__add-prev-button">
@@ -49,6 +49,9 @@ export default {
   methods: {
     EditorTypeIs(typeName) {
       return this.$store.state.editingData[this.id].editorType === typeName;
+    },
+    RemoveObject() {
+      this.$store.dispatch("removeEditingDataAt", this.id);
     }
   },
   components: {
