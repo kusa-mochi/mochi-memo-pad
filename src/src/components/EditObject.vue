@@ -16,6 +16,9 @@
         <list-editor-menu v-else-if="EditorTypeIs('list')"></list-editor-menu>
         <list-editor-menu v-else-if="EditorTypeIs('number-list')"></list-editor-menu>
       </div>
+      <div class="edit-object__remove-button" v-on:click="RemoveObject">
+        <icon icon-name="garbage" size="24"></icon>
+      </div>
       <div class="edit-object__add-prev-button">
         <icon icon-name="plus" size="24"></icon>
       </div>
@@ -46,6 +49,11 @@ export default {
   methods: {
     EditorTypeIs(typeName) {
       return this.$store.state.editingData[this.id].editorType === typeName;
+    },
+    RemoveObject() {
+      if (window.confirm("Is it OK to remove this paragraph ?")) {
+        this.$store.dispatch("removeEditingDataAt", this.id);
+      }
     }
   },
   components: {
@@ -103,6 +111,18 @@ export default {
     opacity: 0;
   }
 
+  .edit-object__remove-button {
+    position: absolute;
+    top: -$tool_icon_height;
+    right: 0;
+    width: $tool_icon_height;
+    height: $tool_icon_height;
+    padding: 3px;
+    background-color: white;
+    border: 1px $theme_color solid;
+    opacity: 0;
+  }
+
   .edit-object__add-prev-button,
   .edit-object__add-next-button {
     position: absolute;
@@ -130,6 +150,7 @@ export default {
 
     .edit-object__drag-handle,
     .edit-object__tool-icons,
+    .edit-object__remove-button,
     .edit-object__add-prev-button,
     .edit-object__add-next-button {
       opacity: 1;

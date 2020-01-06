@@ -247,11 +247,17 @@ export default new Vuex.Store({
   mutations: {
     updateEditingDataMutation(state, value) {
       state.editingData = value;
+    },
+    removeEditingDataAtMutation(state, idx) {
+      state.editingData.splice(idx, 1);
     }
   },
   actions: {
     updateEditingData({ commit }, value) {
       commit('updateEditingDataMutation', value);
+    },
+    removeEditingDataAt({ commit }, idx) {
+      commit('removeEditingDataAtMutation', idx);
     }
   },
   modules: {
