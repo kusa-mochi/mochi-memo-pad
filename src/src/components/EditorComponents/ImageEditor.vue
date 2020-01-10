@@ -18,7 +18,7 @@
     </label>
 
     <p>Drag &amp; Drop here an image file.</p>
-    <img v-bind:src="preview" style="width:300px;height:300px;" />
+    <img v-bind:src="this.$store.state.editingData[this.id].data" style="max-width:70%;max-height:400px;" />
   </div>
 </template>
 
@@ -32,7 +32,6 @@ export default {
     }
   },
   data: {
-    preview: "",
     name: "",
     styleA: true,
     styleB: false
@@ -47,7 +46,7 @@ export default {
       const file = files[0];
       const reader = new FileReader();
       reader.onload = event => {
-        this.preview = event.target.result;
+        this.$store.state.editingData[this.id].data = event.target.result;
       };
       reader.readAsDataURL(file);
       this.name = files[0].name;

@@ -63,6 +63,9 @@ export default {
     NumberedListHTML(dataItem) {
       return this.NumberedListHTMLlet(dataItem.data);
     },
+    ImageHTML(dataItem) {
+      return '<img src="' + dataItem.data + '"/>';
+    },
     Open() {
       const input = document.createElement("input");
       input.type = "file";
@@ -88,6 +91,13 @@ export default {
     },
     Export() {
       let html = "<!DOCTYPE html><html><head>";
+      html += `<style>
+        img {
+          width: calc(100% - 64px);
+          max-width: 70%;
+          margin: 0 auto;
+        }
+      </style>`;
       html += "</head><body>";
       this.$store.state.editingData.forEach(dataItem => {
         switch (dataItem.editorType) {
@@ -102,6 +112,9 @@ export default {
             break;
           case "number-list":
             html += this.NumberedListHTML(dataItem);
+            break;
+          case "image":
+            html += this.ImageHTML(dataItem);
             break;
           default:
             break;
