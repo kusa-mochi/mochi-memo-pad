@@ -23,6 +23,10 @@ export default new Vuex.Store({
         data: "あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。あいうえお、かきくけこ。"
       },
       {
+        editorType: "image",
+        data: "image is here."
+      },
+      {
         editorType: "list",
         data: [
           {

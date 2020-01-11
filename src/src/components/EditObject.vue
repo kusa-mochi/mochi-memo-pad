@@ -6,6 +6,7 @@
         <html-editor v-else-if="EditorTypeIs('html')" v-bind:id="id"></html-editor>
         <list-editor v-else-if="EditorTypeIs('list')" v-bind:id="id" list-type="list"></list-editor>
         <list-editor v-else-if="EditorTypeIs('number-list')" v-bind:id="id" list-type="number-list"></list-editor>
+        <image-editor v-else-if="EditorTypeIs('image')" v-bind:id="id"></image-editor>
       </div>
       <div class="edit-object__drag-handle">
         <icon icon-name="drag-handle" size="16"></icon>
@@ -15,6 +16,7 @@
         <html-editor-menu v-else-if="EditorTypeIs('html')" v-bind:id="id"></html-editor-menu>
         <list-editor-menu v-else-if="EditorTypeIs('list')"></list-editor-menu>
         <list-editor-menu v-else-if="EditorTypeIs('number-list')"></list-editor-menu>
+        <image-editor-menu v-else-if="EditorTypeIs('image')"></image-editor-menu>
       </div>
       <div class="edit-object__remove-button" v-on:click="RemoveObject">
         <icon icon-name="garbage" size="24"></icon>
@@ -37,6 +39,8 @@ import HtmlEditor from "./EditorComponents/HtmlEditor.vue";
 import HtmlEditorMenu from "./EditorComponents/HtmlEditorMenu.vue";
 import ListEditor from "./EditorComponents/ListEditor.vue";
 import ListEditorMenu from "./EditorComponents/ListEditorMenu.vue";
+import ImageEditor from "./EditorComponents/ImageEditor.vue";
+import ImageEditorMenu from "./EditorComponents/ImageEditorMenu.vue";
 
 export default {
   name: "EditObject",
@@ -63,7 +67,9 @@ export default {
     HtmlEditor,
     HtmlEditorMenu,
     ListEditor,
-    ListEditorMenu
+    ListEditorMenu,
+    ImageEditor,
+    ImageEditorMenu
   }
 };
 </script>
