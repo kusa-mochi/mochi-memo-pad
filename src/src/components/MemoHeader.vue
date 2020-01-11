@@ -64,7 +64,7 @@ export default {
       return this.NumberedListHTMLlet(dataItem.data);
     },
     ImageHTML(dataItem) {
-      return '<img src="' + dataItem.data + '"/>';
+      return '<div class="img-container"><img src="' + dataItem.data + '"/></div>';
     },
     Open() {
       const input = document.createElement("input");
@@ -93,9 +93,17 @@ export default {
       let html = "<!DOCTYPE html><html><head>";
       html += `<style>
         img {
-          width: calc(100% - 64px);
-          max-width: 70%;
+          width: 640px;
           margin: 0 auto;
+          text-align: center;
+        }
+        .img-container {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          justify-content: flex-start;
+          align-items: center;
         }
       </style>`;
       html += "</head><body>";
