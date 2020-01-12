@@ -28,7 +28,7 @@
       >
         <icon icon-name="plus" size="24"></icon>
         <div class="prepend-menu" v-if="isPrependMenuOpened">
-          <insertion-menu></insertion-menu>
+          <insertion-menu v-bind:id-to-insert="id" v-on:inserted="OnPrepended"></insertion-menu>
         </div>
       </div>
       <div
@@ -38,7 +38,7 @@
       >
         <icon icon-name="plus" size="24"></icon>
         <div class="append-menu" v-if="isAppendMenuOpened">
-          <insertion-menu></insertion-menu>
+          <insertion-menu v-bind:id-to-insert="id+1" v-on:inserted="OnAppended"></insertion-menu>
         </div>
       </div>
     </div>
@@ -79,6 +79,16 @@ export default {
       if (window.confirm("Is it OK to remove this paragraph ?")) {
         this.$store.dispatch("removeEditingDataAt", this.id);
       }
+    },
+    OnPrepended() {
+      setTimeout(() => {
+        this.isPrependMenuOpened = false;
+      }, 0);
+    },
+    OnAppended() {
+      setTimeout(() => {
+        this.isAppendMenuOpened = false;
+      }, 0);
     }
   },
   components: {
@@ -169,7 +179,9 @@ export default {
   .prepend-menu,
   .append-menu {
     position: absolute;
-    left: calc(50% - (#{$insertion_menu_item_size} * #{$insertion_menu_columns} / 2));
+    left: calc(
+      50% - (#{$insertion_menu_item_size} * #{$insertion_menu_columns} / 2)
+    );
     width: calc(#{$insertion_menu_item_size} * #{$insertion_menu_columns});
   }
 
