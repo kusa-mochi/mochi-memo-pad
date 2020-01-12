@@ -21,11 +21,25 @@
       <div class="edit-object__remove-button" v-on:click="RemoveObject">
         <icon icon-name="garbage" size="24"></icon>
       </div>
-      <div class="edit-object__add-prev-button">
+      <div
+        class="edit-object__prepend-button"
+        v-on:click="isPrependMenuOpened = true"
+        v-on:mouseleave="isPrependMenuOpened = false"
+      >
         <icon icon-name="plus" size="24"></icon>
+        <div class="prepend-menu" v-if="isPrependMenuOpened">
+          <insertion-menu></insertion-menu>
+        </div>
       </div>
-      <div class="edit-object__add-next-button">
+      <div
+        class="edit-object__append-button"
+        v-on:click="isAppendMenuOpened = true"
+        v-on:mouseleave="isAppendMenuOpened = false"
+      >
         <icon icon-name="plus" size="24"></icon>
+        <div class="append-menu" v-if="isAppendMenuOpened">
+          <insertion-menu></insertion-menu>
+        </div>
       </div>
     </div>
   </div>
@@ -33,6 +47,7 @@
 
 <script>
 import Icon from "./Icon.vue";
+import InsertionMenu from "./InsertionMenu.vue";
 import ParagraphEditor from "./EditorComponents/ParagraphEditor.vue";
 import ParagraphEditorMenu from "./EditorComponents/ParagraphEditorMenu.vue";
 import HtmlEditor from "./EditorComponents/HtmlEditor.vue";
@@ -50,6 +65,12 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      isPrependMenuOpened: false,
+      isAppendMenuOpened: false
+    };
+  },
   methods: {
     EditorTypeIs(typeName) {
       return this.$store.state.editingData[this.id].editorType === typeName;
@@ -62,6 +83,7 @@ export default {
   },
   components: {
     Icon,
+    InsertionMenu,
     ParagraphEditor,
     ParagraphEditorMenu,
     HtmlEditor,
@@ -129,8 +151,8 @@ export default {
     opacity: 0;
   }
 
-  .edit-object__add-prev-button,
-  .edit-object__add-next-button {
+  .edit-object__prepend-button,
+  .edit-object__append-button {
     position: absolute;
     width: 24px;
     height: 24px;
@@ -138,16 +160,35 @@ export default {
     border-radius: 12px;
     opacity: 0;
     cursor: pointer;
+
+    &:hover {
+      z-index: 1000;
+    }
   }
 
-  .edit-object__add-prev-button {
+  .prepend-menu,
+  .append-menu {
+    position: absolute;
+    left: calc(50% - (#{$insertion_menu_item_size} * #{$insertion_menu_columns} / 2));
+    width: calc(#{$insertion_menu_item_size} * #{$insertion_menu_columns});
+  }
+
+  .edit-object__prepend-button {
     top: -12px;
     left: calc(50% - 12px);
   }
 
-  .edit-object__add-next-button {
+  .prepend-menu {
+    top: 12px;
+  }
+
+  .edit-object__append-button {
     top: calc(100% - 12px);
     left: calc(50% - 12px);
+  }
+
+  .append-menu {
+    top: calc(100% - 12px);
   }
 
   &:hover {
@@ -157,8 +198,8 @@ export default {
     .edit-object__drag-handle,
     .edit-object__tool-icons,
     .edit-object__remove-button,
-    .edit-object__add-prev-button,
-    .edit-object__add-next-button {
+    .edit-object__prepend-button,
+    .edit-object__append-button {
       opacity: 1;
     }
   }
