@@ -32,6 +32,7 @@ export default {
 .list-editor {
   padding: 8px 16px 8px 8px;
   font-size: 14px;
+  outline: none;
 
   &:focus {
     box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.8);
