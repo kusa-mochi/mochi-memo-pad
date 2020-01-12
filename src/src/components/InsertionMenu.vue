@@ -28,11 +28,11 @@ export default {
       menuItems: [
         {
           name: "dot-list",
-          title: "箇条書き"
+          title: "List"
         },
         {
           name: "image",
-          title: "画像"
+          title: "Image"
         }
       ]
     };
