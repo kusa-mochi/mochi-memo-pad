@@ -1,7 +1,7 @@
 <template>
   <div id="memo-editor">
     <editor-main></editor-main>
-    <editor-side></editor-side>
+    <!-- <editor-side></editor-side> -->
   </div>
 </template>
 

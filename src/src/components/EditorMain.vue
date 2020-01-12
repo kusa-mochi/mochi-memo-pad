@@ -49,6 +49,7 @@ export default {
 
   .editor-main__draggable {
     background-color: white;
+    margin-bottom: 80%;
   }
 }
 </style>
