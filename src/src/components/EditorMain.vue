@@ -52,4 +52,14 @@ export default {
     margin-bottom: 80%;
   }
 }
+
+@media print {
+  #editor-main {
+    overflow: visible;
+
+    .editor-main__draggable {
+      margin: 0;
+    }
+  }
+}
 </style>

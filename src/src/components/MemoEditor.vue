@@ -34,4 +34,10 @@ $editorBorderColor: #aaaaaa;
   border: none;
   box-shadow: 0 0 3px 2px rgba(black, 0.3);
 }
+
+@media print {
+  #memo-editor {
+    box-shadow: none;
+  }
+}
 </style>

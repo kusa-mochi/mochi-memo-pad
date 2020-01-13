@@ -53,4 +53,10 @@ body {
     background-color: white;
   }
 }
+
+@media print {
+  html, body {
+    background-color: transparent;
+  }
+}
 </style>
