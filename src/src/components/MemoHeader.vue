@@ -90,51 +90,54 @@ export default {
       a.click();
     },
     Export() {
-      let html = "<!DOCTYPE html><html><head>";
-      html += `<style>
-        img {
-          width: 640px;
-          margin: 0 auto;
-          text-align: center;
-        }
-        .img-container {
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          flex-wrap: nowrap;
-          justify-content: flex-start;
-          align-items: center;
-        }
-      </style>`;
-      html += "</head><body>";
-      this.$store.state.editingData.forEach(dataItem => {
-        switch (dataItem.editorType) {
-          case "paragraph":
-            html += this.ParagraphHTML(dataItem);
-            break;
-          case "html":
-            html += this.HtmlHTML(dataItem);
-            break;
-          case "list":
-            html += this.ListHTML(dataItem);
-            break;
-          case "number-list":
-            html += this.NumberedListHTML(dataItem);
-            break;
-          case "image":
-            html += this.ImageHTML(dataItem);
-            break;
-          default:
-            break;
-        }
-      });
-      html += "</body></html>";
+      window.print();
+      return;
 
-      const a = document.createElement("a");
-      a.href = "data:text/plain," + encodeURIComponent(html);
-      a.download = this.$store.state.title + ".html";
+      // let html = "<!DOCTYPE html><html><head>";
+      // html += `<style>
+      //   img {
+      //     width: 640px;
+      //     margin: 0 auto;
+      //     text-align: center;
+      //   }
+      //   .img-container {
+      //     width: 100%;
+      //     display: flex;
+      //     flex-direction: column;
+      //     flex-wrap: nowrap;
+      //     justify-content: flex-start;
+      //     align-items: center;
+      //   }
+      // </style>`;
+      // html += "</head><body>";
+      // this.$store.state.editingData.forEach(dataItem => {
+      //   switch (dataItem.editorType) {
+      //     case "paragraph":
+      //       html += this.ParagraphHTML(dataItem);
+      //       break;
+      //     case "html":
+      //       html += this.HtmlHTML(dataItem);
+      //       break;
+      //     case "list":
+      //       html += this.ListHTML(dataItem);
+      //       break;
+      //     case "number-list":
+      //       html += this.NumberedListHTML(dataItem);
+      //       break;
+      //     case "image":
+      //       html += this.ImageHTML(dataItem);
+      //       break;
+      //     default:
+      //       break;
+      //   }
+      // });
+      // html += "</body></html>";
 
-      a.click();
+      // const a = document.createElement("a");
+      // a.href = "data:text/plain," + encodeURIComponent(html);
+      // a.download = this.$store.state.title + ".html";
+
+      // a.click();
     }
   }
 };
@@ -220,6 +223,12 @@ export default {
     flex-wrap: nowrap;
     justify-content: flex-end;
     align-items: flex-start;
+  }
+}
+
+@media print {
+  #memo-header {
+    display: none;
   }
 }
 
