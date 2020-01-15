@@ -2,8 +2,8 @@
   <div id="editor-main">
     <draggable
       class="editor-main__draggable"
-      v-model="editingData"
       group="editingData"
+      v-bind:list="editingData"
       v-on:start="drag=true"
       v-on:end="drag=false"
     >
