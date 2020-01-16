@@ -24,6 +24,7 @@ export default new Vuex.Store({
       },
       {
         editorType: "image",
+        name: "image name",
         data: "image is here."
       },
       {
@@ -250,7 +251,11 @@ export default new Vuex.Store({
   },
   mutations: {
     updateEditingDataMutation(state, value) {
-      state.editingData = value;
+      state.editingData = [];
+      // alert(JSON.stringify(value));
+      value.forEach(item => {
+        state.editingData.push(item);
+      });
     },
     removeEditingDataAtMutation(state, idx) {
       state.editingData.splice(idx, 1);

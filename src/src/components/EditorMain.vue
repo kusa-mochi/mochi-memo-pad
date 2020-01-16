@@ -3,7 +3,8 @@
     <draggable
       class="editor-main__draggable"
       group="editingData"
-      v-bind:list="editingData"
+      animation="200"
+      v-model="editingData"
       v-on:start="drag=true"
       v-on:end="drag=false"
     >
@@ -27,8 +28,9 @@ export default {
       get() {
         return this.$store.state.editingData;
       },
-      set(value) {
-        this.$store.dispatch("updateEditingData", value);
+      set(val) {
+        // this.$store.dispatch("updateEditingData", value);
+        this.$store.commit("updateEditingDataMutation", val);
       }
     }
   },
