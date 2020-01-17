@@ -21,7 +21,7 @@
         accept="image/*"
       />
     </label>
-    <div>{{this.$store.state.editingData[id].name}}</div>
+    <div v-if="isImageShowing">{{this.$store.state.editingData[id].name}}</div>
   </div>
 </template>
 

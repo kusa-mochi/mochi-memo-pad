@@ -25,7 +25,7 @@ export default new Vuex.Store({
       {
         editorType: "image",
         name: "image name",
-        data: "image is here."
+        data: ""
       },
       {
         editorType: "list",
