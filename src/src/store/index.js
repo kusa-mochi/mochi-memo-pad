@@ -251,11 +251,7 @@ export default new Vuex.Store({
   },
   mutations: {
     updateEditingDataMutation(state, value) {
-      state.editingData = [];
-      // alert(JSON.stringify(value));
-      value.forEach(item => {
-        state.editingData.push(item);
-      });
+      state.editingData = value;
     },
     removeEditingDataAtMutation(state, idx) {
       state.editingData.splice(idx, 1);

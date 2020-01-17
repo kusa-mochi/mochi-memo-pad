@@ -29,7 +29,6 @@ export default {
         return this.$store.state.editingData;
       },
       set(val) {
-        // this.$store.dispatch("updateEditingData", value);
         this.$store.commit("updateEditingDataMutation", val);
       }
     }
