@@ -258,11 +258,11 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    updateEditingData({ commit }, value) {
-      commit('updateEditingDataMutation', value);
+    updateEditingData(context, value) {
+      context.commit('updateEditingDataMutation', value);
     },
-    removeEditingDataAt({ commit }, idx) {
-      commit('removeEditingDataAtMutation', idx);
+    removeEditingDataAt(context, idx) {
+      context.commit('removeEditingDataAtMutation', idx);
     }
   },
   modules: {

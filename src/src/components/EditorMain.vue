@@ -29,8 +29,7 @@ export default {
         return this.$store.state.editingData;
       },
       set(val) {
-        // do not use "dispatch", otherwise data is not synced to UI.
-        this.$store.commit("updateEditingDataMutation", val);
+        this.$store.dispatch("updateEditingData", val);
       }
     }
   },
