@@ -256,6 +256,9 @@ export default new Vuex.Store({
     removeEditingDataAtMutation(state, idx) {
       state.editingData.splice(idx, 1);
     },
+    updateParagraphMutation(state, data) {
+      state.editingData[data.idx].data = data.string;
+    },
     updateImageCaptionMutation(state, data) {
       state.editingData[data.idx].name = data.name;
     }
@@ -266,6 +269,9 @@ export default new Vuex.Store({
     },
     removeEditingDataAt(context, idx) {
       context.commit('removeEditingDataAtMutation', idx);
+    },
+    updateParagraph(context, data) {
+      context.commit("updateParagraphMutation", data);
     },
     updateImageCaption(context, data) {
       context.commit("updateImageCaptionMutation", data);
