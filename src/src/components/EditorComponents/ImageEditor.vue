@@ -25,11 +25,17 @@
         accept="image/*"
       />
     </label>
-    <div v-if="isImageShowing">{{this.$store.state.editingData[id].name}}</div>
+    <editable
+      v-if="isImageShowing"
+      v-bind:value="this.$store.state.editingData[id].name"
+      v-on:input="OnCaptionUpdated"
+    ></editable>
   </div>
 </template>
 
 <script>
+import Editable from "./Editable.vue";
+
 export default {
   name: "ImageEditor",
   props: {
@@ -44,7 +50,7 @@ export default {
     isImageShowing: false
   },
   created() {
-    if(!this.$store.state.editingData[this.id].data) {
+    if (!this.$store.state.editingData[this.id].data) {
       this.isImageShowing = false;
       return;
     }
@@ -83,7 +89,16 @@ export default {
         return false;
       }
       this.isDragOver = status;
+    },
+    OnCaptionUpdated(newCaption) {
+      this.$store.dispatch("updateImageCaption", {
+        name: newCaption,
+        idx: this.id
+      });
     }
+  },
+  components: {
+    Editable
   }
 };
 </script>
