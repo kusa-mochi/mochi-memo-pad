@@ -1,12 +1,10 @@
 <template>
-  <div
-    class="paragraph-editor"
-    role="textbox"
-    contenteditable="true"
-  >{{this.$store.state.editingData[this.id].data}}</div>
+  <editable v-bind:value="this.$store.state.editingData[id].data" v-on:input="OnStringUpdated"></editable>
 </template>
 
 <script>
+import Editable from "./Editable.vue";
+
 export default {
   name: "ParagraphEditor",
   props: {
@@ -14,6 +12,17 @@ export default {
       type: Number,
       required: true
     }
+  },
+  methods: {
+    OnStringUpdated(newString) {
+      this.$store.dispatch("updateParagraph", {
+        string: newString,
+        idx: this.id
+      });
+    }
+  },
+  components: {
+    Editable
   }
 };
 </script>
