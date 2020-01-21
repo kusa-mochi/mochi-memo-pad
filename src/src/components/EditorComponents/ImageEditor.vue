@@ -11,7 +11,11 @@
     </div>
     <label class="select-image-area" for="upload_image">
       <div v-if="!isImageShowing" class="select-image-button">Select an image</div>
-      <img v-show="isImageShowing" class="image-editor__img" v-bind:src="this.$store.state.editingData[id].data" />
+      <img
+        v-show="isImageShowing"
+        class="image-editor__img"
+        v-bind:src="this.$store.state.editingData[id].data"
+      />
       <input
         id="upload_image"
         type="file"
@@ -69,7 +73,9 @@ export default {
         this.isImageShowing = true;
       };
       reader.readAsDataURL(file);
-      this.$store.state.editingData[this.id].name = files[0].name.match(/(.*)(?:\.([^.]+$))/)[1];
+      this.$store.state.editingData[this.id].name = files[0].name.match(
+        /(.*)(?:\.([^.]+$))/
+      )[1];
       document.getElementById("upload_image").files = files[0];
     },
     checkDrag(event, status) {
