@@ -1,5 +1,13 @@
 <template>
-  <div contenteditable="true" v-text="text" v-on:input="update" v-on:focus="focus" v-on:blur="blur"></div>
+  <div
+    class="editable"
+    contenteditable="true"
+    v-text="text"
+    v-bind:style="thisStyle"
+    v-on:input="update"
+    v-on:focus="focus"
+    v-on:blur="blur"
+  ></div>
 </template>
 
 <script>
@@ -9,13 +17,43 @@ export default {
     value: {
       type: String,
       required: true
+    },
+    paddingTop: {
+      type: Number,
+      required: false,
+      default: 0
+    },
+    paddingRight: {
+      type: Number,
+      required: false,
+      default: 0
+    },
+    paddingBottom: {
+      type: Number,
+      required: false,
+      default: 0
+    },
+    paddingLeft: {
+      type: Number,
+      required: false,
+      default: 0
     }
   },
   data() {
     return {
-      text: "",
-      focusIn: false
+      focusIn: false,
+      text: ""
     };
+  },
+  computed: {
+    thisStyle() {
+      return {
+        paddingTop: this.paddingTop.toString() + "px",
+        paddingRight: this.paddingRight.toString() + "px",
+        paddingBottom: this.paddingBottom.toString() + "px",
+        paddingLeft: this.paddingLeft.toString() + "px"
+      };
+    }
   },
   mounted() {
     this.text = this.value;
@@ -45,4 +83,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.editable {
+  outline: none;
+
+  &:focus {
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.8);
+  }
+}
 </style>

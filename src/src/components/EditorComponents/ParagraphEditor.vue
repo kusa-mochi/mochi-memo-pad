@@ -1,5 +1,12 @@
 <template>
-  <editable v-bind:value="this.$store.state.editingData[id].data" v-on:input="OnStringUpdated"></editable>
+  <editable
+    padding-top="12"
+    padding-right="8"
+    padding-bottom="12"
+    padding-left="8"
+    v-bind:value="this.$store.state.editingData[id].data"
+    v-on:input="OnStringUpdated"
+  ></editable>
 </template>
 
 <script>
@@ -32,10 +39,5 @@ export default {
   padding: 8px 16px;
   font-size: 14px;
   text-align: left;
-  outline: none;
-
-  &:focus {
-    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.8);
-  }
 }
 </style>
