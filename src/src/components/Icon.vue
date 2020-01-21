@@ -53,9 +53,9 @@
       />
     </g>
     <g v-else-if="iconName === 'paragraph'">
-      <rect x="0" y="14.489" class="mochi-icon" width="512" height="80.504" />
-      <rect x="0" y="215.748" class="mochi-icon" width="512" height="80.504" />
-      <rect x="0" y="417.007" class="mochi-icon" width="256" height="80.504" />
+      <rect class="mochi-icon" x="0" y="14.489" width="512" height="80.504" />
+      <rect class="mochi-icon" x="0" y="215.748" width="512" height="80.504" />
+      <rect class="mochi-icon" x="0" y="417.007" width="256" height="80.504" />
     </g>
     <g v-else-if="iconName === 'dot-list'">
       <path
@@ -63,19 +63,19 @@
         d="M40.252,14.489C18.019,14.489,0,32.507,0,54.741c0,22.233,18.019,40.252,40.252,40.252
 		    c22.225,0,40.252-18.019,40.252-40.252C80.504,32.507,62.477,14.489,40.252,14.489z"
       />
-      <rect x="148.122" y="14.489" class="mochi-icon" width="363.878" height="80.504" />
+      <rect class="mochi-icon" x="148.122" y="14.489" width="363.878" height="80.504" />
       <path
         class="mochi-icon"
         d="M40.252,215.748C18.019,215.748,0,233.767,0,256c0,22.233,18.019,40.252,40.252,40.252
 		    c22.225,0,40.252-18.019,40.252-40.252C80.504,233.767,62.477,215.748,40.252,215.748z"
       />
-      <rect x="148.122" y="215.748" class="mochi-icon" width="363.878" height="80.504" />
+      <rect class="mochi-icon" x="148.122" y="215.748" width="363.878" height="80.504" />
       <path
         class="mochi-icon"
         d="M40.252,417.007C18.019,417.007,0,435.026,0,457.259c0,22.232,18.019,40.252,40.252,40.252
 		    c22.225,0,40.252-18.019,40.252-40.252C80.504,435.026,62.477,417.007,40.252,417.007z"
       />
-      <rect x="148.122" y="417.007" class="mochi-icon" width="363.878" height="80.504" />
+      <rect class="mochi-icon" x="148.122" y="417.007" width="363.878" height="80.504" />
     </g>
     <g v-else-if="iconName === 'image'">
       <path
