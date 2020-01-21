@@ -25,11 +25,17 @@
         accept="image/*"
       />
     </label>
-    <div>{{name}}</div>
+    <editable
+      v-if="isImageShowing"
+      v-bind:value="this.$store.state.editingData[id].name"
+      v-on:input="OnCaptionUpdated"
+    ></editable>
   </div>
 </template>
 
 <script>
+import Editable from "./Editable.vue";
+
 export default {
   name: "ImageEditor",
   props: {
@@ -42,6 +48,14 @@ export default {
     name: "",
     isDragOver: false,
     isImageShowing: false
+  },
+  created() {
+    if (!this.$store.state.editingData[this.id].data) {
+      this.isImageShowing = false;
+      return;
+    }
+
+    this.isImageShowing = true;
   },
   methods: {
     uploadFile(event) {
@@ -65,7 +79,9 @@ export default {
         this.isImageShowing = true;
       };
       reader.readAsDataURL(file);
-      this.name = files[0].name.match(/(.*)(?:\.([^.]+$))/)[1];
+      this.$store.state.editingData[this.id].name = files[0].name.match(
+        /(.*)(?:\.([^.]+$))/
+      )[1];
       document.getElementById("upload_image").files = files[0];
     },
     checkDrag(event, status) {
@@ -73,7 +89,16 @@ export default {
         return false;
       }
       this.isDragOver = status;
+    },
+    OnCaptionUpdated(newCaption) {
+      this.$store.dispatch("updateImageCaption", {
+        name: newCaption,
+        idx: this.id
+      });
     }
+  },
+  components: {
+    Editable
   }
 };
 </script>

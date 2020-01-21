@@ -24,7 +24,8 @@ export default new Vuex.Store({
       },
       {
         editorType: "image",
-        data: "image is here."
+        name: "image name",
+        data: ""
       },
       {
         editorType: "list",
@@ -254,14 +255,20 @@ export default new Vuex.Store({
     },
     removeEditingDataAtMutation(state, idx) {
       state.editingData.splice(idx, 1);
+    },
+    updateImageCaptionMutation(state, data) {
+      state.editingData[data.idx].name = data.name;
     }
   },
   actions: {
-    updateEditingData({ commit }, value) {
-      commit('updateEditingDataMutation', value);
+    updateEditingData(context, value) {
+      context.commit('updateEditingDataMutation', value);
     },
-    removeEditingDataAt({ commit }, idx) {
-      commit('removeEditingDataAtMutation', idx);
+    removeEditingDataAt(context, idx) {
+      context.commit('removeEditingDataAtMutation', idx);
+    },
+    updateImageCaption(context, data) {
+      context.commit("updateImageCaptionMutation", data);
     }
   },
   modules: {
