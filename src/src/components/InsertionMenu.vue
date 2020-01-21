@@ -27,6 +27,10 @@ export default {
     return {
       menuItems: [
         {
+          name: "paragraph",
+          title: "Paragraph"
+        },
+        {
           name: "dot-list",
           title: "List"
         },
@@ -41,6 +45,12 @@ export default {
     InsertEditor(iconName) {
       let dataToInsert = null;
       switch (iconName) {
+        case "paragraph":
+          dataToInsert = {
+            editorType: "paragraph",
+            data: ""
+          };
+          break;
         case "dot-list":
           dataToInsert = {
             editorType: "list",

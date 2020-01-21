@@ -52,6 +52,11 @@
         c-8.403,0.51-15.624-5.886-16.134-14.288l-14.509-239.493C139.026,203.339,145.43,196.118,153.833,195.608z"
       />
     </g>
+    <g v-else-if="iconName === 'paragraph'">
+      <rect x="0" y="14.489" class="mochi-icon" width="512" height="80.504" />
+      <rect x="0" y="215.748" class="mochi-icon" width="512" height="80.504" />
+      <rect x="0" y="417.007" class="mochi-icon" width="256" height="80.504" />
+    </g>
     <g v-else-if="iconName === 'dot-list'">
       <path
         class="mochi-icon"
