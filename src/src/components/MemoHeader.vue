@@ -64,7 +64,21 @@ export default {
       return this.NumberedListHTMLlet(dataItem.data);
     },
     ImageHTML(dataItem) {
-      return '<div class="img-container"><img src="' + dataItem.data + '"/></div>';
+      return (
+        '<div class="img-container"><img src="' + dataItem.data + '"/></div>'
+      );
+    },
+    download2(dataURI, filename) {
+      const blob = new Blob([dataURI], { type: "text/plain" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.download = filename;
+      a.href = url;
+      a.click();
+
+      setTimeout(() => {
+        URL.revokeObjectURL(url);
+      }, Math.max(3000, ((1000 * dataURI.length) / 1024) * 1024));
     },
     Open() {
       const input = document.createElement("input");
@@ -72,22 +86,19 @@ export default {
       input.addEventListener("change", e => {
         var result = e.target.files[0];
         var reader = new FileReader();
-        reader.readAsText(result);
-        reader.addEventListener("load", () => {
+        reader.addEventListener("loadend", () => {
           var title = result.name.match(/(.*)\.json$/)[1];
           this.$store.state.title = title;
-          this.$store.state.editingData = JSON.parse(reader.result);
+          this.$store.dispatch("updateEditingData", JSON.parse(reader.result));
         });
+        reader.readAsText(result);
       });
       input.click();
     },
     Save() {
       const saveData = JSON.stringify(this.$store.state.editingData);
-      const a = document.createElement("a");
-      a.href = "data:text/plain," + encodeURIComponent(saveData);
-      a.download = this.$store.state.title + ".json";
-
-      a.click();
+      const dataUri = /*"data:text/plain," + */encodeURIComponent(saveData);
+      this.download2(saveData, this.$store.state.title + ".json");
     },
     Export() {
       window.print();
