@@ -22,11 +22,16 @@
         >{{this.$store.state.title}}</span>-->
       </div>
     </div>
-    <div class="memo-header__right"></div>
+    <div class="memo-header__right">
+      <button class="minimize-button" v-on:click="Minimize">_</button>
+      <button class="maximize-button" v-on:click="Maximize">□</button>
+      <button class="close-button" v-on:click="Close">x</button>
+    </div>
   </div>
 </template>
 
 <script>
+import { ipcRenderer } from "electron";
 import Editable from "./EditorComponents/Editable.vue";
 
 export default {
@@ -114,7 +119,7 @@ export default {
       this.$store.dispatch("updateIsDataSavedFlag", true);
     },
     Export() {
-      window.print();
+      ipcRenderer.send("print-to-pdf", this.$store.state.title);
       return;
 
       // let html = "<!DOCTYPE html><html><head>";
@@ -165,6 +170,15 @@ export default {
     },
     OnTitleUpdated(newString) {
       this.$store.dispatch("updateTitle", newString);
+    },
+    Minimize() {
+      ipcRenderer.send("window-min");
+    },
+    Maximize() {
+      ipcRenderer.send("window-max");
+    },
+    Close() {
+      window.close();
     }
   },
   components: {
@@ -253,6 +267,13 @@ export default {
     flex-wrap: nowrap;
     justify-content: flex-end;
     align-items: flex-start;
+
+    .minimize-button,
+    .maximize-button,
+    .close-button {
+      @include header_button();
+      width: $header_height;
+    }
   }
 }
 

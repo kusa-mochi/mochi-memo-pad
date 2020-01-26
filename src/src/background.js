@@ -1,11 +1,14 @@
 'use strict'
 
-import { app, protocol, BrowserWindow, ipcMain } from 'electron'
+import { app, protocol, BrowserWindow, ipcMain, shell } from 'electron';
 import {
   createProtocol,
   installVueDevtools
-} from 'vue-cli-plugin-electron-builder/lib'
-const isDevelopment = process.env.NODE_ENV !== 'production'
+} from 'vue-cli-plugin-electron-builder/lib';
+import fs from 'fs';
+import os from 'os';
+import path from 'path';
+const isDevelopment = process.env.NODE_ENV !== 'production';
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -37,7 +40,7 @@ function createWindow() {
 
   win.on('closed', () => {
     win = null
-  })
+  });
 }
 
 // Quit when all windows are closed.
@@ -87,6 +90,24 @@ ipcMain.on('window-max', function () {
   if (win != null)
     win.isMaximized() ? win.unmaximize() : win.maximize();
 })
+
+ipcMain.on('print-to-pdf', (event, arg) => {
+  // 作成するPDFの保存パスを指定
+  const pdfPath = path.join(os.tmpdir(), arg + '.pdf');
+  const win = BrowserWindow.fromWebContents(event.sender);
+
+  // Electronデフォルトで使用できるprintToPDFを使用する
+  win.webContents.printToPDF({}, (error, data) => {
+    if (error) return console.log(error.message)
+
+    fs.writeFile(pdfPath, data, err => {
+      if (err) return console.log(err.message)
+      shell.openExternal('file://' + pdfPath)
+      event.sender.send('wrote-pdf', pdfPath)
+    });
+
+  });
+});
 
 // Exit cleanly on request from parent process in development mode.
 if (isDevelopment) {
