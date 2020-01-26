@@ -49,13 +49,18 @@ export default {
     isDragOver: false,
     isImageShowing: false
   },
-  created() {
-    if (!this.$store.state.editingData[this.id].data) {
-      this.isImageShowing = false;
-      return;
+  computed: {
+    imageData: {
+      get() {
+        return this.$store.state.editingData[this.id].data;
+      },
+      set(value) {
+        this.$store.state.editingData[this.id].data = value;
+      }
     }
-
-    this.isImageShowing = true;
+  },
+  created() {
+    this.checkImageUpdate();
   },
   methods: {
     uploadFile(event) {
@@ -90,11 +95,24 @@ export default {
       }
       this.isDragOver = status;
     },
+    checkImageUpdate() {
+      if (!this.$store.state.editingData[this.id].data) {
+        this.isImageShowing = false;
+        return;
+      }
+
+      this.isImageShowing = true;
+    },
     OnCaptionUpdated(newCaption) {
       this.$store.dispatch("updateImageCaption", {
         name: newCaption,
         idx: this.id
       });
+    }
+  },
+  watch: {
+    imageData() {
+      this.checkImageUpdate();
     }
   },
   components: {
