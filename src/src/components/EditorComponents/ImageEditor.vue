@@ -9,15 +9,15 @@
     <div class="guide-message" v-if="!isImageShowing">
       <div>Drag &amp; Drop here an image file, or push button below and select a file.</div>
     </div>
-    <label class="select-image-area" for="upload_image">
+    <label class="select-image-area" v-bind:for="imageId">
       <div v-if="!isImageShowing" class="select-image-button">Select an image</div>
       <img
         v-show="isImageShowing"
         class="image-editor__img"
-        v-bind:src="this.$store.state.editingData[id].data"
+        v-bind:src="imageData"
       />
       <input
-        id="upload_image"
+        v-bind:id="imageId"
         type="file"
         name="img"
         v-on:change="uploadFile($event)"
@@ -57,6 +57,9 @@ export default {
       set(value) {
         this.$store.state.editingData[this.id].data = value;
       }
+    },
+    imageId() {
+      return "image_" + this.id;
     }
   },
   created() {
@@ -80,14 +83,14 @@ export default {
 
       const reader = new FileReader();
       reader.onload = event => {
-        this.$store.state.editingData[this.id].data = event.target.result;
+        this.imageData = event.target.result;
         this.isImageShowing = true;
       };
       reader.readAsDataURL(file);
       this.$store.state.editingData[this.id].name = files[0].name.match(
         /(.*)(?:\.([^.]+$))/
       )[1];
-      document.getElementById("upload_image").files = files[0];
+      document.getElementById(this.imageId).files = files[0];
     },
     checkDrag(event, status) {
       if (status && event.dataTransfer.types == "text/plain") {
@@ -96,7 +99,7 @@ export default {
       this.isDragOver = status;
     },
     checkImageUpdate() {
-      if (!this.$store.state.editingData[this.id].data) {
+      if (!imageData) {
         this.isImageShowing = false;
         return;
       }
