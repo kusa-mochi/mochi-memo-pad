@@ -10,6 +10,22 @@ export default new Vuex.Store({
     title: "Title is here.Title is here.Title is here.Title is here.Title is here.Title is here.Title is here.Title is here.Title is here.Title is here.Title is here.",
     editingData: [
       {
+        editorType: "heading1",
+        data: "見出し1"
+      },
+      {
+        editorType: "heading2",
+        data: "見出し2"
+      },
+      {
+        editorType: "heading3",
+        data: "見出し3"
+      },
+      {
+        editorType: "heading4",
+        data: "見出し4"
+      },
+      {
         editorType: "paragraph",
         data: "あいうえお、かきくけこ。"
       },
@@ -259,6 +275,9 @@ export default new Vuex.Store({
     updateParagraphMutation(state, data) {
       state.editingData[data.idx].data = data.string;
     },
+    changeHeadingLevelMutation(state, data) {
+      state.editingData[data.idx].editorType = "heading" + data.level;
+    },
     updateImageCaptionMutation(state, data) {
       state.editingData[data.idx].name = data.name;
     }
@@ -272,6 +291,9 @@ export default new Vuex.Store({
     },
     updateParagraph(context, data) {
       context.commit("updateParagraphMutation", data);
+    },
+    changeHeadingLevel(context, data) {
+      context.commit("changeHeadingLevelMutation", data);
     },
     updateImageCaption(context, data) {
       context.commit("updateImageCaptionMutation", data);

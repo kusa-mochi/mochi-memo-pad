@@ -6,7 +6,11 @@
       v-bind:key="idx"
       v-on:click="InsertEditor(item.name)"
     >
-      <icon v-bind:icon-name="item.name" size="24"></icon>
+      <div v-if="item.name === 'heading1'" class="menu-item__text-title">h1</div>
+      <div v-else-if="item.name === 'heading2'" class="menu-item__text-title">h2</div>
+      <div v-else-if="item.name === 'heading3'" class="menu-item__text-title">h3</div>
+      <div v-else-if="item.name === 'heading4'" class="menu-item__text-title">h4</div>
+      <icon v-else v-bind:icon-name="item.name" size="24"></icon>
       <div class="menu-item__title">{{item.title}}</div>
     </div>
   </div>
@@ -31,6 +35,22 @@ export default {
           title: "Paragraph"
         },
         {
+          name: "heading1",
+          title: "heading 1"
+        },
+        {
+          name: "heading2",
+          title: "heading 2"
+        },
+        {
+          name: "heading3",
+          title: "heading 3"
+        },
+        {
+          name: "heading4",
+          title: "heading 4"
+        },
+        {
           name: "dot-list",
           title: "List"
         },
@@ -48,6 +68,30 @@ export default {
         case "paragraph":
           dataToInsert = {
             editorType: "paragraph",
+            data: ""
+          };
+          break;
+        case "heading1":
+          dataToInsert = {
+            editorType: "heading1",
+            data: ""
+          };
+          break;
+        case "heading2":
+          dataToInsert = {
+            editorType: "heading2",
+            data: ""
+          };
+          break;
+        case "heading3":
+          dataToInsert = {
+            editorType: "heading3",
+            data: ""
+          };
+          break;
+        case "heading4":
+          dataToInsert = {
+            editorType: "heading4",
             data: ""
           };
           break;
@@ -115,6 +159,13 @@ export default {
 
     &__title {
       margin-top: 8px;
+    }
+
+    &__text-title {
+      color: $theme_color;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: -12px;
     }
   }
 }

@@ -18,6 +18,11 @@ export default {
       type: String,
       required: true
     },
+    fontSize: {
+      type: Number,
+      required: false,
+      default: 16
+    },
     paddingTop: {
       type: Number,
       required: false,
@@ -48,6 +53,7 @@ export default {
   computed: {
     thisStyle() {
       return {
+        fontSize: this.fontSize.toString() + "px",
         paddingTop: this.paddingTop.toString() + "px",
         paddingRight: this.paddingRight.toString() + "px",
         paddingBottom: this.paddingBottom.toString() + "px",
