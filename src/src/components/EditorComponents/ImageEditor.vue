@@ -14,7 +14,7 @@
       <img
         v-show="isImageShowing"
         class="image-editor__img"
-        v-bind:src="imageData"
+        v-bind:src="this.$store.state.editingData[this.id].data"
       />
       <input
         v-bind:id="imageId"
@@ -83,7 +83,7 @@ export default {
 
       const reader = new FileReader();
       reader.onload = event => {
-        this.imageData = event.target.result;
+        this.$store.state.editingData[this.id].data = event.target.result;
         this.isImageShowing = true;
       };
       reader.readAsDataURL(file);
@@ -99,7 +99,7 @@ export default {
       this.isDragOver = status;
     },
     checkImageUpdate() {
-      if (!imageData) {
+      if (!this.$store.state.editingData[this.id].data) {
         this.isImageShowing = false;
         return;
       }
