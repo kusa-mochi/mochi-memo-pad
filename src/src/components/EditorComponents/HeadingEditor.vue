@@ -10,6 +10,7 @@
       v-on:input="OnStringUpdated"
     ></editable>
     <hr v-if="level === 1" class="horizontal-border" />
+    <hr v-if="level === 1 || level === 2" class="horizontal-border" />
   </div>
 </template>
 
@@ -62,7 +63,8 @@ export default {
 <style lang="scss" scoped>
 .horizontal-border {
   border: none;
-  background-color: #aaaaaa;
-  height: 2px;
+  background-color: #555555;
+  height: 1px;
+  margin-bottom: 1px;
 }
 </style>

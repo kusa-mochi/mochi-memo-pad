@@ -275,6 +275,9 @@ export default new Vuex.Store({
     updateParagraphMutation(state, data) {
       state.editingData[data.idx].data = data.string;
     },
+    changeHeadingLevelMutation(state, data) {
+      state.editingData[data.idx].editorType = "heading" + data.level;
+    },
     updateImageCaptionMutation(state, data) {
       state.editingData[data.idx].name = data.name;
     }
@@ -288,6 +291,9 @@ export default new Vuex.Store({
     },
     updateParagraph(context, data) {
       context.commit("updateParagraphMutation", data);
+    },
+    changeHeadingLevel(context, data) {
+      context.commit("changeHeadingLevelMutation", data);
     },
     updateImageCaption(context, data) {
       context.commit("updateImageCaptionMutation", data);
