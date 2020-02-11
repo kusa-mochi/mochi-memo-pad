@@ -35,9 +35,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.paragraph-editor {
-  padding: 8px 16px;
-  font-size: 14px;
-  text-align: left;
-}
 </style>

@@ -3,6 +3,10 @@
     <div class="edit-object__content">
       <div class="edit-object__body">
         <paragraph-editor v-if="EditorTypeIs('paragraph')" v-bind:id="id"></paragraph-editor>
+        <heading-editor v-else-if="EditorTypeIs('heading1')" v-bind:id="id" v-bind:level="1"></heading-editor>
+        <heading-editor v-else-if="EditorTypeIs('heading2')" v-bind:id="id" v-bind:level="2"></heading-editor>
+        <heading-editor v-else-if="EditorTypeIs('heading3')" v-bind:id="id" v-bind:level="3"></heading-editor>
+        <heading-editor v-else-if="EditorTypeIs('heading4')" v-bind:id="id" v-bind:level="4"></heading-editor>
         <html-editor v-else-if="EditorTypeIs('html')" v-bind:id="id"></html-editor>
         <list-editor v-else-if="EditorTypeIs('list')" v-bind:id="id" list-type="list"></list-editor>
         <list-editor v-else-if="EditorTypeIs('number-list')" v-bind:id="id" list-type="number-list"></list-editor>
@@ -13,6 +17,7 @@
       </div>
       <div class="edit-object__tool-icons">
         <paragraph-editor-menu v-if="EditorTypeIs('paragraph')"></paragraph-editor-menu>
+        <heading-editor-menu v-else-if="EditorTypeIs('heading1') || EditorTypeIs('heading2') || EditorTypeIs('heading3') || EditorTypeIs('heading4')"></heading-editor-menu>
         <html-editor-menu v-else-if="EditorTypeIs('html')" v-bind:id="id"></html-editor-menu>
         <list-editor-menu v-else-if="EditorTypeIs('list')"></list-editor-menu>
         <list-editor-menu v-else-if="EditorTypeIs('number-list')"></list-editor-menu>
@@ -50,6 +55,8 @@ import Icon from "./Icon.vue";
 import InsertionMenu from "./InsertionMenu.vue";
 import ParagraphEditor from "./EditorComponents/ParagraphEditor.vue";
 import ParagraphEditorMenu from "./EditorComponents/ParagraphEditorMenu.vue";
+import HeadingEditor from "./EditorComponents/HeadingEditor.vue";
+import HeadingEditorMenu from "./EditorComponents/HeadingEditorMenu.vue";
 import HtmlEditor from "./EditorComponents/HtmlEditor.vue";
 import HtmlEditorMenu from "./EditorComponents/HtmlEditorMenu.vue";
 import ListEditor from "./EditorComponents/ListEditor.vue";
@@ -96,6 +103,8 @@ export default {
     InsertionMenu,
     ParagraphEditor,
     ParagraphEditorMenu,
+    HeadingEditor,
+    HeadingEditorMenu,
     HtmlEditor,
     HtmlEditorMenu,
     ListEditor,

@@ -10,6 +10,22 @@ export default new Vuex.Store({
     title: "Title is here.Title is here.Title is here.Title is here.Title is here.Title is here.Title is here.Title is here.Title is here.Title is here.Title is here.",
     editingData: [
       {
+        editorType: "heading1",
+        data: "見出し1"
+      },
+      {
+        editorType: "heading2",
+        data: "見出し2"
+      },
+      {
+        editorType: "heading3",
+        data: "見出し3"
+      },
+      {
+        editorType: "heading4",
+        data: "見出し4"
+      },
+      {
         editorType: "paragraph",
         data: "あいうえお、かきくけこ。"
       },
