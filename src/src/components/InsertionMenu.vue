@@ -10,6 +10,7 @@
       <div v-else-if="item.name === 'heading2'" class="menu-item__text-title">h2</div>
       <div v-else-if="item.name === 'heading3'" class="menu-item__text-title">h3</div>
       <div v-else-if="item.name === 'heading4'" class="menu-item__text-title">h4</div>
+      <div v-else-if="item.name === 'html'" class="menu-item__text-title">&lt;/&gt;</div>
       <icon v-else v-bind:icon-name="item.name" size="24"></icon>
       <div class="menu-item__title">{{item.title}}</div>
     </div>
@@ -57,6 +58,10 @@ export default {
         {
           name: "image",
           title: "Image"
+        },
+        {
+          name: "html",
+          title: "HTML Code"
         }
       ]
     };
@@ -112,6 +117,12 @@ export default {
             data: null
           };
           break;
+        case "html":
+          dataToInsert = {
+            editorType: "html",
+            isVisualized: false,
+            data: ""
+          };
         default:
           break;
       }
