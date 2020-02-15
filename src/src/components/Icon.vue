@@ -77,6 +77,76 @@
       />
       <rect class="mochi-icon" x="148.122" y="417.007" width="363.878" height="80.504" />
     </g>
+    <g v-else-if="iconName === 'indent'">
+      <rect
+        v-bind:x="0+indentIconOffsetX"
+        v-bind:y="341.333+indentIconOffsetY"
+        width="384"
+        height="42.667"
+      />
+      <polygon
+        v-bind:points="(0+indentIconOffsetX) + ',' + (106.667+indentIconOffsetY) + ' ' + (0+indentIconOffsetX) + ',' + (277.333+indentIconOffsetY) + ' ' + (85.333+indentIconOffsetX) + ',' + (192+indentIconOffsetY)"
+      />
+      <rect
+        v-bind:x="170.667+indentIconOffsetX"
+        v-bind:y="256+indentIconOffsetY"
+        width="213.333"
+        height="42.667"
+      />
+      <rect
+        v-bind:x="170.667+indentIconOffsetX"
+        v-bind:y="85.333+indentIconOffsetY"
+        width="213.333"
+        height="42.667"
+      />
+      <rect
+        v-bind:x="0+indentIconOffsetX"
+        v-bind:y="0+indentIconOffsetY"
+        width="384"
+        height="42.667"
+      />
+      <rect
+        v-bind:x="170.667+indentIconOffsetX"
+        v-bind:y="170.667+indentIconOffsetY"
+        width="213.333"
+        height="42.667"
+      />
+    </g>
+    <g v-else-if="iconName === 'outdent'">
+      <rect
+        v-bind:x="0+indentIconOffsetX"
+        v-bind:y="341.333+indentIconOffsetY"
+        width="384"
+        height="42.667"
+      />
+      <polygon
+        v-bind:points="(85.333+indentIconOffsetX) + ',' + (106.667+indentIconOffsetY) + ' ' + (85.333+indentIconOffsetX) + ',' + (277.333+indentIconOffsetY) + ' ' + (0+indentIconOffsetX) + ',' + (192+indentIconOffsetY)"
+      />
+      <rect
+        v-bind:x="170.667+indentIconOffsetX"
+        v-bind:y="256+indentIconOffsetY"
+        width="213.333"
+        height="42.667"
+      />
+      <rect
+        v-bind:x="170.667+indentIconOffsetX"
+        v-bind:y="85.333+indentIconOffsetY"
+        width="213.333"
+        height="42.667"
+      />
+      <rect
+        v-bind:x="0+indentIconOffsetX"
+        v-bind:y="0+indentIconOffsetY"
+        width="384"
+        height="42.667"
+      />
+      <rect
+        v-bind:x="170.667+indentIconOffsetX"
+        v-bind:y="170.667+indentIconOffsetY"
+        width="213.333"
+        height="42.667"
+      />
+    </g>
     <g v-else-if="iconName === 'image'">
       <path
         class="mochi-icon"
@@ -107,7 +177,9 @@ export default {
       thisStyle: {
         "--width": this.size + "px",
         "--height": this.size + "px"
-      }
+      },
+      indentIconOffsetX: 52,
+      indentIconOffsetY: 52
     };
   }
 };
