@@ -6,7 +6,12 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     title: "",
-    editingData: [],
+    editingData: [
+      {
+        editorType: "paragraph",
+        data: ""
+      }
+    ],
     isDataSaved: true
   },
   mutations: {
