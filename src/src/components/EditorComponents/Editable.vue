@@ -1,6 +1,7 @@
 <template>
   <div
     class="editable"
+    v-bind:class="{'border-visible': isFocusBorderVisible}"
     contenteditable="true"
     v-text="text"
     v-bind:style="thisStyle"
@@ -42,6 +43,11 @@ export default {
       type: Number,
       required: false,
       default: 0
+    },
+    isFocusBorderVisible: {
+      type: Boolean,
+      required: false,
+      default: true
     }
   },
   data() {
@@ -92,7 +98,7 @@ export default {
 .editable {
   outline: none;
 
-  &:focus {
+  &:focus.border-visible {
     box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.8);
   }
 }
