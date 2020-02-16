@@ -38,6 +38,9 @@ export default new Vuex.Store({
     updateImageCaptionMutation(state, data) {
       state.editingData[data.idx].name = data.name;
       state.isDataSaved = false;
+    },
+    insertDataMutation(state, data) {
+      state.editingData.splice(data.idx, 0, data.data);
     }
   },
   actions: {
@@ -58,6 +61,9 @@ export default new Vuex.Store({
     },
     updateImageCaption(context, data) {
       context.commit("updateImageCaptionMutation", data);
+    },
+    insertData(context, data) {
+      context.commit("insertDataMutation", data);
     }
   },
   modules: {

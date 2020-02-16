@@ -126,7 +126,11 @@ export default {
         default:
           break;
       }
-      this.$store.state.editingData.splice(this.idToInsert, 0, dataToInsert);
+
+      this.$store.dispatch("insertData", {
+        idx: this.idToInsert,
+        data: dataToInsert
+      });
 
       this.$emit("inserted");
     }
