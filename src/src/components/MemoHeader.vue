@@ -99,7 +99,7 @@ export default {
         var reader = new FileReader();
         reader.addEventListener("loadend", () => {
           var title = result.name.match(/(.*)\.json$/)[1];
-          this.$store.state.title = title;
+          this.$store.dispatch("updateTitle", title)
           this.$store.dispatch("updateEditingData", JSON.parse(reader.result));
           this.$store.state.isDataSaved = true;
         });
