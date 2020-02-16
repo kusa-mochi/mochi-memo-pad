@@ -101,6 +101,7 @@ export default {
           var title = result.name.match(/(.*)\.json$/)[1];
           this.$store.state.title = title;
           this.$store.dispatch("updateEditingData", JSON.parse(reader.result));
+          this.$store.state.isDataSaved = true;
         });
         reader.readAsText(result);
       });
@@ -110,6 +111,7 @@ export default {
       const saveData = JSON.stringify(this.$store.state.editingData);
       const dataUri = /*"data:text/plain," + */ encodeURIComponent(saveData);
       this.download2(saveData, this.$store.state.title + ".json");
+      this.$store.state.isDataSaved = true;
     },
     Export() {
       window.print();

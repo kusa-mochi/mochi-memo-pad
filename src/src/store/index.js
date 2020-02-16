@@ -17,21 +17,27 @@ export default new Vuex.Store({
   mutations: {
     updateTitleMutation(state, value) {
       state.title = value;
+      state.isDataSaved = false;
     },
     updateEditingDataMutation(state, value) {
       state.editingData = value;
+      state.isDataSaved = false;
     },
     removeEditingDataAtMutation(state, idx) {
       state.editingData.splice(idx, 1);
+      state.isDataSaved = false;
     },
     updateParagraphMutation(state, data) {
       state.editingData[data.idx].data = data.string;
+      state.isDataSaved = false;
     },
     changeHeadingLevelMutation(state, data) {
       state.editingData[data.idx].editorType = "heading" + data.level;
+      state.isDataSaved = false;
     },
     updateImageCaptionMutation(state, data) {
       state.editingData[data.idx].name = data.name;
+      state.isDataSaved = false;
     }
   },
   actions: {
