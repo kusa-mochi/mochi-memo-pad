@@ -8,6 +8,10 @@ export default new Vuex.Store({
     title: "",
     editingData: [
       {
+        editorType: "heading1",
+        data: ""
+      },
+      {
         editorType: "paragraph",
         data: ""
       }
