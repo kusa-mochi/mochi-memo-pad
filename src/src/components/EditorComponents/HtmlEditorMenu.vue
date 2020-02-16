@@ -16,7 +16,10 @@ export default {
   },
   methods: {
     Visualize(vis) {
-      this.$store.state.editingData[this.id].isVisualized = vis;
+      this.$store.dispatch("updateIsVisualizedFlag", {
+        idx: this.id,
+        value: vis
+      });
     }
   }
 };

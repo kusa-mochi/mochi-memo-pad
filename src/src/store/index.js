@@ -42,6 +42,9 @@ export default new Vuex.Store({
       state.editingData[data.idx].name = data.name;
       state.isDataSaved = false;
     },
+    updateIsVisualizedFlagMutation(state, data) {
+      state.editingData[data.idx].isVisualized = data.value;
+    },
     insertDataMutation(state, data) {
       state.editingData.splice(data.idx, 0, data.data);
     }
@@ -67,6 +70,9 @@ export default new Vuex.Store({
     },
     updateImageCaption(context, data) {
       context.commit("updateImageCaptionMutation", data);
+    },
+    updateIsVisualizedFlag(context, data) {
+      context.commit("updateIsVisualizedFlagMutation", data);
     },
     insertData(context, data) {
       context.commit("insertDataMutation", data);
