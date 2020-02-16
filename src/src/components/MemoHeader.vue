@@ -6,11 +6,20 @@
       <button class="menu-button" v-on:click="Save">Save</button>
       <button class="menu-button" v-on:click="Export">Export</button>
       <div class="memo-title">
-        <span class="memo-title__no-saved">*</span>
-        <span
+        <div v-if="this.$store.state.isDataSaved === false" class="memo-title__no-saved">*</div>
+        <editable
+          padding-top="8"
+          padding-right="8"
+          padding-bottom="8"
+          padding-left="8"
+          v-bind:is-focus-border-visible="false"
+          v-bind:value="this.$store.state.title"
+          v-on:input="OnTitleUpdated"
+        ></editable>
+        <!-- <span
           class="memo-title__main"
           v-bind:title="this.$store.state.title"
-        >{{this.$store.state.title}}</span>
+        >{{this.$store.state.title}}</span>-->
       </div>
     </div>
     <div class="memo-header__right"></div>
@@ -18,6 +27,8 @@
 </template>
 
 <script>
+import Editable from "./EditorComponents/Editable.vue";
+
 export default {
   name: "MemoHeader",
   methods: {
@@ -97,7 +108,7 @@ export default {
     },
     Save() {
       const saveData = JSON.stringify(this.$store.state.editingData);
-      const dataUri = /*"data:text/plain," + */encodeURIComponent(saveData);
+      const dataUri = /*"data:text/plain," + */ encodeURIComponent(saveData);
       this.download2(saveData, this.$store.state.title + ".json");
     },
     Export() {
@@ -149,7 +160,13 @@ export default {
       // a.download = this.$store.state.title + ".html";
 
       // a.click();
+    },
+    OnTitleUpdated(newString) {
+      this.$store.dispatch("updateTitle", newString);
     }
+  },
+  components: {
+    Editable
   }
 };
 </script>
