@@ -19,8 +19,8 @@
         <paragraph-editor-menu v-if="EditorTypeIs('paragraph')"></paragraph-editor-menu>
         <heading-editor-menu v-else-if="EditorTypeIs('heading1') || EditorTypeIs('heading2') || EditorTypeIs('heading3') || EditorTypeIs('heading4')" v-bind:id="id"></heading-editor-menu>
         <html-editor-menu v-else-if="EditorTypeIs('html')" v-bind:id="id"></html-editor-menu>
-        <list-editor-menu v-else-if="EditorTypeIs('list')"></list-editor-menu>
-        <list-editor-menu v-else-if="EditorTypeIs('number-list')"></list-editor-menu>
+        <list-editor-menu v-else-if="EditorTypeIs('list')" v-bind:id="id"></list-editor-menu>
+        <list-editor-menu v-else-if="EditorTypeIs('number-list')" v-bind:id="id"></list-editor-menu>
         <image-editor-menu v-else-if="EditorTypeIs('image')"></image-editor-menu>
       </div>
       <div class="edit-object__remove-button" v-on:click="RemoveObject">

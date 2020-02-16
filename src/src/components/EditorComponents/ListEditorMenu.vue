@@ -1,9 +1,9 @@
 <template>
   <div class="list-editor-menu">
-    <button>
+    <button v-on:click="Outdent">
       <icon icon-name="outdent" size="24"></icon>
     </button>
-    <button>
+    <button v-on:click="Indent">
       <icon icon-name="indent" size="24"></icon>
     </button>
   </div>
@@ -13,6 +13,16 @@
 import Icon from "../Icon.vue";
 export default {
   name: "ListEditorMenu",
+  props: {
+    id: {
+      type: Number,
+      required: true
+    }
+  },
+  methods: {
+    Indent() {},
+    Outdent() {}
+  },
   components: {
     Icon
   }
@@ -37,6 +47,7 @@ export default {
     padding: 3px;
     background-color: white;
     border: none;
+    user-select: none;
   }
 }
 </style>
