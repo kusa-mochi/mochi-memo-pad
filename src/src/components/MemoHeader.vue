@@ -99,9 +99,9 @@ export default {
         var reader = new FileReader();
         reader.addEventListener("loadend", () => {
           var title = result.name.match(/(.*)\.json$/)[1];
-          this.$store.dispatch("updateTitle", title)
+          this.$store.dispatch("updateTitle", title);
           this.$store.dispatch("updateEditingData", JSON.parse(reader.result));
-          this.$store.state.isDataSaved = true;
+          this.$store.dispatch("updateIsDataSavedFlag", true);
         });
         reader.readAsText(result);
       });
@@ -111,7 +111,7 @@ export default {
       const saveData = JSON.stringify(this.$store.state.editingData);
       const dataUri = /*"data:text/plain," + */ encodeURIComponent(saveData);
       this.download2(saveData, this.$store.state.title + ".json");
-      this.$store.state.isDataSaved = true;
+      this.$store.dispatch("updateIsDataSavedFlag", true);
     },
     Export() {
       window.print();

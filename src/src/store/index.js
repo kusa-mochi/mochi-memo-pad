@@ -19,6 +19,9 @@ export default new Vuex.Store({
       state.title = value;
       state.isDataSaved = false;
     },
+    updateIsDataSavedFlagMutation(state, value) {
+      state.isDataSaved = value;
+    },
     updateEditingDataMutation(state, value) {
       state.editingData = value;
       state.isDataSaved = false;
@@ -46,6 +49,9 @@ export default new Vuex.Store({
   actions: {
     updateTitle(context, value) {
       context.commit('updateTitleMutation', value);
+    },
+    updateIsDataSavedFlag(context, value) {
+      context.commit('updateIsDataSavedFlagMutation', value);
     },
     updateEditingData(context, value) {
       context.commit('updateEditingDataMutation', value);
