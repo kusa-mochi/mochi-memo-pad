@@ -6,9 +6,13 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     title: "",
-    editingData: []
+    editingData: [],
+    isDataSaved: true
   },
   mutations: {
+    updateTitleMutation(state, value) {
+      state.title = value;
+    },
     updateEditingDataMutation(state, value) {
       state.editingData = value;
     },
@@ -26,6 +30,9 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    updateTitle(context, value) {
+      context.commit('updateTitleMutation', value);
+    },
     updateEditingData(context, value) {
       context.commit('updateEditingDataMutation', value);
     },
