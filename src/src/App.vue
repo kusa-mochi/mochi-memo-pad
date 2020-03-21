@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark dense>
+    <v-app-bar app color="primary" dark dense flat>
       <memo-header></memo-header>
       <!-- <div class="d-flex align-center">
         <v-img
