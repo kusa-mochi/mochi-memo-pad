@@ -168,8 +168,8 @@ export default {
     width: $tool_icon_height;
     height: $tool_icon_height;
     padding: 3px;
-    background-color: white;
-    border: 1px $theme_color solid;
+    // background-color: white;
+    // border: 1px $theme_primary solid;
     opacity: 0;
   }
 
@@ -178,7 +178,7 @@ export default {
     position: absolute;
     width: 24px;
     height: 24px;
-    background-color: white;
+    // background-color: white;
     border-radius: 12px;
     opacity: 0;
     cursor: pointer;

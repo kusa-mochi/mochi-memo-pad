@@ -47,9 +47,10 @@ export default {
   padding: 0 32px;
   overflow-x: hidden;
   overflow-y: scroll;
+  box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.6);
 
   .editor-main__draggable {
-    background-color: white;
+    // background-color: white;
     margin-bottom: 80%;
   }
 }

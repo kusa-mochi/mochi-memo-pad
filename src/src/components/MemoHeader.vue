@@ -1,10 +1,10 @@
 <template>
   <div id="memo-header">
     <div class="memo-header__left">
-      <button class="menu-button" v-on:click="Open">Open</button>
+      <v-btn text v-on:click="Open">Open</v-btn>
       <input id="open-file-input" type="file" />
-      <button class="menu-button" v-on:click="Save">Save</button>
-      <button class="menu-button" v-on:click="Export">Export</button>
+      <v-btn text v-on:click="Save">Save</v-btn>
+      <v-btn text v-on:click="Export">Export</v-btn>
       <div class="memo-title">
         <div v-if="this.$store.state.isDataSaved === false" class="memo-title__no-saved">*</div>
         <editable
@@ -176,24 +176,24 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/assets";
 
-@mixin header_button() {
-  height: $header_height;
-  padding: 0 16px;
-  background-color: transparent;
-  color: white;
-  font-size: 14px;
-  border: none;
-  outline: none;
+// @mixin header_button() {
+//   height: $header_height;
+//   padding: 0 16px;
+//   background-color: transparent;
+//   color: white;
+//   font-size: 14px;
+//   border: none;
+//   outline: none;
 
-  &:hover {
-    background-color: #127a29;
-  }
-}
+//   &:hover {
+//     background-color: #127a29;
+//   }
+// }
 
 #memo-header {
   width: 100%;
   min-height: $header_height;
-  background-color: $theme_color;
+  // background-color: $theme_primary;
   position: relative;
 
   display: flex;
@@ -216,16 +216,16 @@ export default {
     justify-content: flex-start;
     align-items: flex-start;
 
-    .menu-button {
-      @include header_button();
-    }
+    // .menu-button {
+    //   @include header_button();
+    // }
 
     .memo-title {
       margin: auto 8px;
       max-width: 500px;
       height: $header_height;
-      background-color: transparent;
-      color: white;
+      // background-color: transparent;
+      // color: white;
       border: none;
       outline: none;
 

@@ -1,11 +1,8 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
+    <v-app-bar app color="primary" dark dense>
+      <memo-header></memo-header>
+      <!-- <div class="d-flex align-center">
         <v-img
           alt="Vuetify Logo"
           class="shrink mr-2"
@@ -34,27 +31,29 @@
       >
         <span class="mr-2">Latest Release</span>
         <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      </v-btn>-->
     </v-app-bar>
 
     <v-content>
-      <HelloWorld/>
+      <memo-editor></memo-editor>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import MemoHeader from "./components/MemoHeader";
+import MemoEditor from "./components/MemoEditor";
 
 export default {
-  name: 'App',
+  name: "App",
 
   components: {
-    HelloWorld,
+    MemoHeader,
+    MemoEditor
   },
 
   data: () => ({
     //
-  }),
+  })
 };
 </script>

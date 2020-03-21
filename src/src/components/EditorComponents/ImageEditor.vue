@@ -143,9 +143,9 @@ export default {
     box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.8);
   }
 
-  &.drag-over {
-    background-color: red;
-  }
+  // &.drag-over {
+  //   background-color: red;
+  // }
 
   .guide-message {
     height: 100px;
@@ -170,8 +170,8 @@ export default {
     width: auto;
     padding: 8px;
     border-radius: 4px;
-    color: white;
-    background-color: $theme_color;
+    // color: white;
+    // background-color: $theme_primary;
 
     &:hover {
       opacity: 0.8;

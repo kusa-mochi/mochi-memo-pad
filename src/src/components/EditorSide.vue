@@ -12,6 +12,6 @@ export default {
 #editor-side {
   width: 300px;
   height: 100%;
-  background-color: #f2f2f2;
+  // background-color: #f2f2f2;
 }
 </style>

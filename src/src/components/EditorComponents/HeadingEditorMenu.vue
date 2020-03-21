@@ -31,7 +31,7 @@ export default {
 @import "../../assets/assets";
 .heading-editor-menu {
   height: $tool_icon_height;
-  border: 1px $theme_color solid;
+  border: 1px $theme_primary solid;
 
   display: flex;
   flex-direction: row;
@@ -43,7 +43,7 @@ export default {
   button {
     width: 30px;
     height: 100%;
-    background-color: white;
+    // background-color: white;
     border: none;
   }
 }

@@ -26,7 +26,7 @@ export default {
 @import "../../assets/assets";
 .image-editor-menu {
   height: $tool_icon_height;
-  border: 1px $theme_color solid;
+  border: 1px $theme_primary solid;
 
   display: flex;
   flex-direction: row;
@@ -38,7 +38,7 @@ export default {
   button {
     height: 100%;
     padding: 3px;
-    background-color: white;
+    // background-color: white;
     border: none;
   }
 }

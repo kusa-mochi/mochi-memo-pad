@@ -10,7 +10,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/colors";
-.list-editor-menu {
-    background-color: $theme_color;
-}
+// .list-editor-menu {
+//     background-color: $theme_primary;
+// }
 </style>

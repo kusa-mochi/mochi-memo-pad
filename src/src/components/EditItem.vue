@@ -52,8 +52,8 @@ $tab_item_height: 40px;
         cursor: pointer;
 
         &:checked + .tab-item__label {
-          background-color: #169632;
-          color: white;
+          // background-color: #169632;
+          // color: white;
         }
       }
 

@@ -146,7 +146,7 @@ export default {
 
 .insertion-menu {
   max-width: calc(#{$insertion_menu_item_size} * #{$insertion_menu_columns});
-  background-color: white;
+  // background-color: white;
   border: none;
   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.4);
 
@@ -168,16 +168,16 @@ export default {
     justify-content: flex-start;
     align-items: center;
 
-    &:hover {
-      background-color: rgba($theme_color, 0.1);
-    }
+    // &:hover {
+    //   background-color: rgba($theme_primary, 0.1);
+    // }
 
     &__title {
       margin-top: 8px;
     }
 
     &__text-title {
-      color: $theme_color;
+      // color: $theme_primary;
       font-size: 24px;
       font-weight: 600;
       margin-bottom: -12px;
