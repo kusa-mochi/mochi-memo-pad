@@ -29,26 +29,40 @@
       <div class="edit-object__remove-button" v-on:click="RemoveObject">
         <icon icon-name="garbage" size="24"></icon>
       </div>
-      <div
+      <v-btn
         class="edit-object__prepend-button"
+        color="primary"
+        dark
+        x-small
+        absolute
+        bottom
+        left
+        fab
         v-on:click="isPrependMenuOpened = true"
         v-on:mouseleave="isPrependMenuOpened = false"
       >
-        <icon icon-name="plus" size="24"></icon>
+        <v-icon>mdi-plus</v-icon>
         <div class="prepend-menu" v-if="isPrependMenuOpened">
           <insertion-menu v-bind:id-to-insert="id" v-on:inserted="OnPrepended"></insertion-menu>
         </div>
-      </div>
-      <div
+      </v-btn>
+      <v-btn
         class="edit-object__append-button"
+        color="primary"
+        dark
+        x-small
+        absolute
+        bottom
+        left
+        fab
         v-on:click="isAppendMenuOpened = true"
         v-on:mouseleave="isAppendMenuOpened = false"
       >
-        <icon icon-name="plus" size="24"></icon>
+        <v-icon>mdi-plus</v-icon>
         <div class="append-menu" v-if="isAppendMenuOpened">
           <insertion-menu v-bind:id-to-insert="id+1" v-on:inserted="OnAppended"></insertion-menu>
         </div>
-      </div>
+      </v-btn>
     </div>
   </div>
 </template>
