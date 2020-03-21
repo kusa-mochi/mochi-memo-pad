@@ -192,7 +192,6 @@ export default {
 
 #memo-header {
   width: 100%;
-  min-height: $header_height;
   // background-color: $theme_primary;
   position: relative;
 
@@ -223,7 +222,6 @@ export default {
     .memo-title {
       margin: auto 8px;
       max-width: 500px;
-      height: $header_height;
       // background-color: transparent;
       // color: white;
       border: none;
