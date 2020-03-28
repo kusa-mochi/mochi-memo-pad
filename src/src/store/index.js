@@ -8,7 +8,8 @@ export default new Vuex.Store({
     title: "",
     editingData: [
       {
-        editorType: "heading1",
+        editorType: "heading",
+        level: 1,
         data: ""
       },
       {
@@ -38,8 +39,12 @@ export default new Vuex.Store({
       state.editingData[data.idx].data = data.string;
       state.isDataSaved = false;
     },
-    changeHeadingLevelMutation(state, data) {
-      state.editingData[data.idx].editorType = "heading" + data.level;
+    updateHeadingMutation(state, data) {
+      state.editingData[data.idx].editorType = "heading";
+      state.editingData[data.idx].level = data.level;
+      if(data.data) {
+        state.editingData[data.idx].data = data.data;
+      }
       state.isDataSaved = false;
     },
     updateImageCaptionMutation(state, data) {
@@ -69,8 +74,8 @@ export default new Vuex.Store({
     updateParagraph(context, data) {
       context.commit("updateParagraphMutation", data);
     },
-    changeHeadingLevel(context, data) {
-      context.commit("changeHeadingLevelMutation", data);
+    updateHeading(context, data) {
+      context.commit("updateHeadingMutation", data);
     },
     updateImageCaption(context, data) {
       context.commit("updateImageCaptionMutation", data);

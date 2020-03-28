@@ -24,11 +24,11 @@ export default {
       type: Number,
       required: true
     },
-    level: {
-      type: Number,
-      required: false,
-      default: 1
-    }
+    // level: {
+    //   type: Number,
+    //   required: false,
+    //   default: 1
+    // }
   },
   computed: {
     fontSize() {
@@ -44,6 +44,9 @@ export default {
         default:
           return 32;
       }
+    },
+    level() {
+      return this.$store.state.editingData[this.id].level;
     }
   },
   methods: {

@@ -3,10 +3,7 @@
     <div class="edit-object__content">
       <div class="edit-object__body">
         <paragraph-editor v-if="EditorTypeIs('paragraph')" v-bind:id="id"></paragraph-editor>
-        <heading-editor v-else-if="EditorTypeIs('heading1')" v-bind:id="id" v-bind:level="1"></heading-editor>
-        <heading-editor v-else-if="EditorTypeIs('heading2')" v-bind:id="id" v-bind:level="2"></heading-editor>
-        <heading-editor v-else-if="EditorTypeIs('heading3')" v-bind:id="id" v-bind:level="3"></heading-editor>
-        <heading-editor v-else-if="EditorTypeIs('heading4')" v-bind:id="id" v-bind:level="4"></heading-editor>
+        <heading-editor v-else-if="EditorTypeIs('heading')" v-bind:id="id"></heading-editor>
         <html-editor v-else-if="EditorTypeIs('html')" v-bind:id="id"></html-editor>
         <list-editor v-else-if="EditorTypeIs('list')" v-bind:id="id" list-type="list"></list-editor>
         <list-editor v-else-if="EditorTypeIs('number-list')" v-bind:id="id" list-type="number-list"></list-editor>
@@ -18,7 +15,7 @@
       <div class="edit-object__tool-icons">
         <paragraph-editor-menu v-if="EditorTypeIs('paragraph')"></paragraph-editor-menu>
         <heading-editor-menu
-          v-else-if="EditorTypeIs('heading1') || EditorTypeIs('heading2') || EditorTypeIs('heading3') || EditorTypeIs('heading4')"
+          v-else-if="EditorTypeIs('heading')"
           v-bind:id="id"
         ></heading-editor-menu>
         <html-editor-menu v-else-if="EditorTypeIs('html')" v-bind:id="id"></html-editor-menu>
@@ -143,7 +140,7 @@ export default {
   outline: none;
 
   &:nth-of-type(1) {
-    margin-top: $tool_icon_height;
+    margin-top: $tool_icon_height + 1;
   }
 
   .edit-object__content {
@@ -169,7 +166,7 @@ export default {
 
   .edit-object__tool-icons {
     position: absolute;
-    top: -$tool_icon_height;
+    top: -$tool_icon_height - 1;
     left: 0;
     height: $tool_icon_height;
     opacity: 0;

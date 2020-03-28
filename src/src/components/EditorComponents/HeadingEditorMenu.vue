@@ -1,10 +1,10 @@
 <template>
-  <div class="heading-editor-menu">
-    <button v-on:click="ChangeLevel(1)">h1</button>
-    <button v-on:click="ChangeLevel(2)">h2</button>
-    <button v-on:click="ChangeLevel(3)">h3</button>
-    <button v-on:click="ChangeLevel(4)">h4</button>
-  </div>
+  <v-btn-toggle>
+    <v-btn v-on:click="ChangeLevel(1)">h1</v-btn>
+    <v-btn v-on:click="ChangeLevel(2)">h2</v-btn>
+    <v-btn v-on:click="ChangeLevel(3)">h3</v-btn>
+    <v-btn v-on:click="ChangeLevel(4)">h4</v-btn>
+  </v-btn-toggle>
 </template>
 
 <script>
@@ -16,9 +16,22 @@ export default {
       required: true
     }
   },
+  computed: {
+    SelectedIndex: {
+      get() {
+        return this.$store.state.editingData[this.id].level;
+      },
+      set(newValue) {
+        this.$store.dispatch("updateHeading", {
+          idx: this.id,
+          level: newValue + 1
+        });
+      }
+    }
+  },
   methods: {
     ChangeLevel(levelTo) {
-      this.$store.dispatch("changeHeadingLevel", {
+      this.$store.dispatch("updateHeading", {
         idx: this.id,
         level: levelTo
       });
