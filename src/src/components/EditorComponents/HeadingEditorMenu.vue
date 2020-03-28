@@ -41,23 +41,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../assets/assets";
-.heading-editor-menu {
-  height: $tool_icon_height;
-  border: 1px $theme_primary solid;
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  align-content: flex-start;
-
-  button {
-    width: 30px;
-    height: 100%;
-    // background-color: white;
-    border: none;
-  }
-}
 </style>
